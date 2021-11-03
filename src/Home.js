@@ -3,7 +3,7 @@ import React from "react";
 export default function Home() {
     return (
         <div>
-            Etusivu
+            <h3>Etusivu</h3>
         </div>
     );
 }

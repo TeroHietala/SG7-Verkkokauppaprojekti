@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
     return (
-<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Teron Tamburiini</a>
+    <a class="navbar-brand" href="#">NUOTTI SHOP</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,7 +15,13 @@ export default function Navbar() {
           <Link className="nav-link" to="/">Etusivu</Link>
         </li>
         <li class="nav-item">
-        <Link className="nav-link" to="/about">Tuotteet</Link>
+        <Link className="nav-link" to="/products">Tuotteet</Link>
+        </li>
+        <li class="nav-item">
+        <Link className="nav-link" to="/discount">Tarjoukset</Link>
+        </li>
+        <li class="nav-item">
+        <Link className="nav-link" to="/shoppingbasket">Ostoskori</Link>
         </li>
         <li class="nav-item">
         <Link className="nav-link" to="/contactus">Yhteystiedot</Link>
