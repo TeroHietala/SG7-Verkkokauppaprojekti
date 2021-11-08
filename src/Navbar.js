@@ -1,4 +1,5 @@
 import React from "react";
+import NavDropdown from 'react-bootstrap/NavDropdown'
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -14,9 +15,14 @@ export default function Navbar() {
         <li class="nav-item active">
           <Link className="nav-link" to="/">Etusivu</Link>
         </li>
-        <li class="nav-item">
-        <Link className="nav-link" to="/products">Tuotteet</Link>
-        </li>
+        <NavDropdown title="Tuotteet" id="nav-dropdown">
+        <NavDropdown.Item eventKey="/products">Kitarat</NavDropdown.Item>
+        <NavDropdown.Item eventKey="/products">Rummut</NavDropdown.Item>
+        <NavDropdown.Item eventKey="/products">Bassot</NavDropdown.Item>
+        <NavDropdown.Item eventKey="/products">Viulut</NavDropdown.Item>
+        <NavDropdown.Item eventKey="/products">Muut</NavDropdown.Item>
+
+      </NavDropdown>
         <li class="nav-item">
         <Link className="nav-link" to="/discount">Tarjoukset</Link>
         </li>
