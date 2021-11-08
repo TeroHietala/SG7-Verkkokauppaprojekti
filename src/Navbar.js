@@ -26,6 +26,15 @@ export default function Navbar() {
         <li class="nav-item">
         <Link className="nav-link" to="/contactus">Yhteystiedot</Link>
         </li>
+        <li>
+          <input placeholder="Käyttäjätunnus"></input>
+        </li>
+        <li>
+          <input placeholder="Salasana"></input>
+        </li>
+        <li class="nav-item">
+        <Link className="nav-link" to="/register">Reksiteröidy</Link>
+        </li>
       </ul>
     </div>
   </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Products() {
+export default function Discount() {
     return (
         <div>
             <h3>Tarjous tuotteet</h3>

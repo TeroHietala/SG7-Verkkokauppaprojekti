@@ -6,6 +6,7 @@ import Products from './Products';
 import Discount from './Discount';
 import NotFound from './Notfound';
 import ContactUs from './ContactUs';
+import Register from './register';
 import Basket from './ShoppingBasket';
 import NavBar from './Navbar';
 import Header from './Header';
@@ -25,6 +26,7 @@ function App() {
       <Route path="/discount" component={Discount} />
       <Route path="/contactus" component={ContactUs} />
       <Route path="/shoppingbasket" component={Basket} />
+      <Route path="/register" component={Register} />
       <Route component={NotFound}/>
     </Switch>
     </div>
