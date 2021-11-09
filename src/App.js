@@ -12,6 +12,7 @@ import Cart from './Cart';
 import NavBar from './Navbar';
 import Header from './Header';
 import Footer from './Footer';
+import Order from './Order';
 
 
 function App() {
