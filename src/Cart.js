@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'; 
+import {Link} from 'react-router-dom';
 
 export default function Cart({cart}) {
     return (
@@ -9,15 +9,17 @@ export default function Cart({cart}) {
             </svg>
 
             <span style={{color: 'white'}}>{cart.length}</span>
+
+            <div>
+                <h3>Tuotteet {category?.name}</h3>
+                {products.map(product => (
+                    <div key={product.id}>
+                        <p>{product.name}</p>
+                        <button className='btn btn-primary' type='button' onClick={e => addToCart(product)}> Add </button>
+                    </div>
+                ))};
+            </div>
         </Link>
 
-     <h3>Tuotteet {category?.name}</h3>
-        {products.map(product => (
-            <div key={product.id}>
-            <p>{product.name}</p>
-            <button className='btn btn-primary' type='button' onClick={e => addToCart(product)}> Add </button>
-            </div>
-        ))}
-
     )
-}
+    };
