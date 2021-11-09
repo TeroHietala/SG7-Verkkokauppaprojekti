@@ -12,5 +12,6 @@ export default function Products() {
                 <li>Muut</li>
             </ul>
         </div>
+
     );
 }

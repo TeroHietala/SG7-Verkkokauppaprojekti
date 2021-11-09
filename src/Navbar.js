@@ -1,8 +1,11 @@
 import React from "react";
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { Link } from "react-router-dom";
+import Cart from './Cart';
 
-export default function Navbar() {
+export default function Navbar({cart}) {
+
+
     return (
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
@@ -42,6 +45,11 @@ export default function Navbar() {
         <Link className="nav-link" to="/register">Reksiteröidy</Link>
         </li>
       </ul>
+       <ul className='navba-nav ml-auto'>
+        <li className='nav-item'>
+        <Cart cart={cart} />
+        </li>
+      </ul>  
     </div>
   </div>
 </nav>
