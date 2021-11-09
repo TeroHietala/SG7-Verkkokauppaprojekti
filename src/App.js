@@ -55,13 +55,6 @@ function addToCart(product) {
     </div>
     <Footer />        
     
-     <h3>Tuotteet {category?.name}</h3>
-        {products.map(product => (
-            <div key={product.id}>
-            <p>{product.name}</p>
-            <button className='btn btn-primary' type='button' onClick={e => addToCart(product)}> Add </button>
-            </div>
-        ))}
     </>
 
   );
