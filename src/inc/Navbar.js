@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Cart from './Cart';
 
-export default function Navbar(cart) {
+export default function Navbar({cart}) {
 
   const [categories, setCategories] = useState([]);
 
@@ -56,9 +57,6 @@ export default function Navbar(cart) {
             <li className="nav-item">
               <Link className="nav-link" to="/discount">Tarjoukset</Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/shoppingbasket">Ostoskori</Link>
-            </li>
             <li>
               <input placeholder="Käyttäjätunnus"></input>
             </li>
@@ -70,6 +68,11 @@ export default function Navbar(cart) {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/contactus">Yhteystiedot</Link>
+            </li>
+          </ul>
+          <ul className="navba-nav ml-auto">
+            <li className="nav-item">
+              <Cart cart={cart} />
             </li>
           </ul>
         </div>

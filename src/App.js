@@ -11,7 +11,9 @@ import Register from './inc/register';
 import Navbar from './inc/Navbar';
 import Header from './inc/Header';
 import Footer from './inc/Footer';
-import Cart from './Cart';
+
+
+
 
 const URL = 'http://localhost/verkkokauppa/';
 
@@ -38,7 +40,7 @@ function App() {
 function addToCart(product) {
   const newCart = [...cart,product]; // Create new table
   setCart(newCart); // update state variable.
-  localStorage.setItem('Cart',JSON.stringify(newCart));
+  localStorage.setItem('cart',JSON.stringify(newCart));
 }
 
   return (
@@ -53,12 +55,10 @@ function addToCart(product) {
                 URL={URL}
                 category={category}
                 addToCart={addToCart}/>}
-              />}
-            exact
-          />
-          <Route path="inc/products" component={Products} />
-          <Route path="inc/discount" component={Discount} />
-          <Route path="inc/contactus" component={ContactUs} />
+              />
+          <Route path="inc/Products" component={Products} />
+          <Route path="inc/Discount" component={Discount} />
+          <Route path="inc/ContactUs" component={ContactUs} />
           <Route path="inc/register" component={Register} />
           <Route component={NotFound} />
         </Switch>
