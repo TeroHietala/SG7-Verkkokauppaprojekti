@@ -1,17 +1,16 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import { Switch, Route, useLocation } from 'react-router-dom'
 import Home from './Home';
-import Products from './Products';
-import Discount from './Discount';
-import NotFound from './Notfound';
-import ContactUs from './ContactUs';
-import Register from './register';
-import NavBar from './Navbar';
-import Header from './Header';
-import Footer from './Footer';
-import Order from './Order';
+import Products from './inc/Products';
+import Discount from './inc/Discount';
+import NotFound from './inc/Notfound';
+import ContactUs from './inc/ContactUs';
+import Register from './inc/register';
+import Navbar from './inc/Navbar';
+import Header from './inc/Header';
+import Footer from './inc/Footer';
 
 const URL = 'http://localhost/verkkokauppa/';
 
@@ -21,37 +20,35 @@ function App() {
   let location = useLocation();
 
   useEffect(() => {
-    if (location.state !==undefined) {
-      setCategory({id: location.state.id,name:location.state.name});
+    if (location.state !== undefined) {
+      setCategory({ id: location.state.id, name: location.state.name });
+      console.log(category)
     }
-  },[location.state])
-  
+  }, [location.state])
 
   return (
     <>
-    <NavBar url={URL} setCategory={setCategory}/>
-    <Header />
-    <div id="content" className="container-fluid">
-    <Switch>
-      <Route
-        path="/" render ={() =>
-          <Home
-            url={URL}
-            category={category}
-          />}
-          exact
+      <Navbar uri={URL} />
+      <Header />
+      <div id="content" className="container-fluid">
+        <Switch>
+          <Route
+            path="/" render={() =>
+              <Home
+                URL={URL}
+                category={category}
+              />}
+            exact
           />
+          <Route path="inc/products" component={Products} />
+          <Route path="inc/discount" component={Discount} />
+          <Route path="inc/contactus" component={ContactUs} />
+          <Route path="inc/register" component={Register} />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
+      <Footer />
 
-      <Route path="/products" component={Products} />
-      <Route path="/discount" component={Discount} />
-      <Route path="/contactus" component={ContactUs} />
-      
-      <Route path="/register" component={Register} />
-      <Route component={NotFound}/>
-    </Switch>
-    </div>
-    <Footer />        
-    
     </>
 
   );
