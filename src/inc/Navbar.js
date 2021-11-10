@@ -34,11 +34,8 @@ export default function Navbar() {
             <li class="nav-item active">
               <Link className="nav-link" to="/">Etusivu</Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" aria-current="page" to="/">Tuotteet</Link>
-            </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"></a>
+              <a className="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown">Tuotteet</a>
               <ul className="dropdown-menu" aria-aria-labelledby="dropdown01">
                 {categories.map(category => (
                   <li key={category.id}>
