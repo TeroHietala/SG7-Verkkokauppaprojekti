@@ -31,12 +31,12 @@ export default function Navbar(cart) {
         </button>
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item active">
+            <li className="nav-item active">
               <Link className="nav-link" to="/">Etusivu</Link>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown">Tuotteet</a>
-              <ul className="dropdown-menu" aria-aria-labelledby="dropdown01">
+              <ul className="dropdown-menu" aria-labelledby="dropdown01">
                 {categories.map(category => (
                   <li key={category.id}>
                     <Link className="dropdown-item"
@@ -53,10 +53,10 @@ export default function Navbar(cart) {
                 ))}
               </ul>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <Link className="nav-link" to="/discount">Tarjoukset</Link>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <Link className="nav-link" to="/shoppingbasket">Ostoskori</Link>
             </li>
             <li>
@@ -65,10 +65,10 @@ export default function Navbar(cart) {
             <li>
               <input placeholder="Salasana"></input>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <Link className="nav-link" to="/register">Rekisteröidy</Link>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <Link className="nav-link" to="/contactus">Yhteystiedot</Link>
             </li>
           </ul>
