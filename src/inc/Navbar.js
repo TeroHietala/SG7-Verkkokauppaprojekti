@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Navbar() {
+export default function Navbar(cart) {
 
   const [categories, setCategories] = useState([]);
 
@@ -66,7 +66,7 @@ export default function Navbar() {
               <input placeholder="Salasana"></input>
             </li>
             <li class="nav-item">
-              <Link className="nav-link" to="/register">Reksiteröidy</Link>
+              <Link className="nav-link" to="/register">Rekisteröidy</Link>
             </li>
             <li class="nav-item">
               <Link className="nav-link" to="/contactus">Yhteystiedot</Link>

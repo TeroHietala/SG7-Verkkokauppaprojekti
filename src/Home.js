@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 
-export default function Home({ URL, category }) {
+export default function Home({ URL, category,  addToCart}) {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -23,12 +23,14 @@ export default function Home({ URL, category }) {
         }
 
     }, [category])
+
     return (
         <div>
             <h3>{category?.name}</h3>
             {products.map(product => (
                 <div key={product.id}>
                     <p>{product.name}</p>
+                     <button className='btn btn-primary' type='button' onClick={e => addToCart(product)}> Add </button>
                     <div>
                         <img src={URL + 'images/' + product.image} alt="" />
                     </div>
