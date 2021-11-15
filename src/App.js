@@ -44,24 +44,20 @@ function addToCart(product) {
 }
 
   return (
-    <>      
-    <Header />
-    <div id="content" className="container-fluid">
-      <Navbar URL={URL} setCategory={setCategory} />
-
+    <>
+      <Navbar url={URL} setCategory={setCategory} />
+      <Header />
+      <div id="content" className="container-fluid">
         <Switch>
           <Route
             path="/" render={() =>
               <Home
-                URL={URL}
+                url={URL}
                 category={category}
-                addToCart={addToCart}/>}
+                addToCart={addToCart}/> } exact
               />
-          <Route path="inc/Products" component={Products} />
-          <Route path="inc/Discount" component={Discount} />
-          <Route path="inc/ContactUs" component={ContactUs} />
-          <Route path="inc/register" component={Register} />
-          <Route component={NotFound} />
+              <Route path="/inc/Discount" component={Discount} />
+
         </Switch>
       </div>
       <Footer />

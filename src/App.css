@@ -16,8 +16,8 @@ footer {
 }
 
 #header {
-/*   background-image: url(./banner.png);
- */  display: block;
+   background-image: url(./banner.png);
+   display: block;
   height: 300px;
   background-size: contain;
 }
