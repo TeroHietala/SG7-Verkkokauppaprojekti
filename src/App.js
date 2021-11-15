@@ -44,10 +44,11 @@ function addToCart(product) {
 }
 
   return (
-    <>
-      <Navbar uri={URL} setCategory={setCategory} />
-      <Header />
-      <div id="content" className="container-fluid">
+    <>      
+    <Header />
+    <div id="content" className="container-fluid">
+      <Navbar URL={URL} setCategory={setCategory} />
+
         <Switch>
           <Route
             path="/" render={() =>
