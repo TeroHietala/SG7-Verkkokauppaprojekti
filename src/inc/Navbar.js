@@ -4,16 +4,15 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Cart from './Cart';
 
-export default function Navbar({cart}) {
+export default function Navbar({url, cart, setCategory}) {
 
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost/verkkokauppa/products/getcategories.php')
+    axios.get(url + 'products/getcategories.php')
       .then((response) => {
         const json = response.data;
         setCategories(json);
-        console.log(categories)
       }).catch(error => {
         if (error.response === undefined) {
           alert(error);
@@ -62,6 +61,11 @@ export default function Navbar({cart}) {
             </li>
 
 
+        </ul>
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+              <Cart cart={cart} />        
+          </li>
         </ul>
         </div>
 
