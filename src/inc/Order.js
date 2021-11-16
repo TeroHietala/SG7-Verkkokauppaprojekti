@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+import React from 'react'
+
+export default function Order() {
+    return (
+        <div>
+           <h1> Ostoskori</h1>
+        </div>
+    )
+}
+
+=======
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
@@ -22,3 +34,4 @@ export default function Order({cart}) {
     </div>
     );
 }
+>>>>>>> 1e62db0de9bc18711bb443a16d8dc98eab502a25

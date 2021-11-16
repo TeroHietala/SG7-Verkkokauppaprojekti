@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function Toimitusehdot() {
+export default function Toimitusehdot() {
     return (
         <div>
             <strong>Toimitusaika:</strong>
