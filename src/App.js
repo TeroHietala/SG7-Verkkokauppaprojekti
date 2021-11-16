@@ -6,13 +6,16 @@ import Home from './Home';
 //import Products from './inc/Products';
 import Discount from './inc/Discount';
 //import NotFound from './inc/Notfound';
-//import ContactUs from './inc/ContactUs';
+import ContactUs from './inc/ContactUs';
 //import Register from './inc/register';
 import Navbar from './inc/Navbar';
 import Header from './inc/Header';
 import Footer from './inc/Footer';
 import Order from './inc/Order';
-
+import GDPR from './inc/GDPR';
+import Maksutavat from './inc/Maksutavat';
+import Takuu from './inc/Takuu';
+import Toimitusehdot from './inc/Toimitusehdot';
 const URL = 'http://localhost/verkkokauppa/';
 
 function App() {
@@ -59,6 +62,12 @@ function App() {
             exact
           />
           <Route path="/inc/Discount" component={Discount}  />
+          <Route path="/inc/GDPR" component={GDPR}  />
+          <Route path="/inc/ContactUs" component={ContactUs}  />
+          <Route path="/inc/Maksutavat" component={Maksutavat}  />
+          <Route path="/inc/Takuu" component={Takuu}  />
+          <Route path="/inc/Toimitusehdot" component={Toimitusehdot}  />
+
           <Route
             path="/inc/Order"setCart={setCart} render={() =>
               <Order
