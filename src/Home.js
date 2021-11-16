@@ -2,7 +2,9 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 
-export default function Home({ url, category,  addToCart}) {
+//const url = 'http://localhost/verkkokauppa/';
+
+export default function Home({url, category, addToCart}) {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -27,12 +29,15 @@ export default function Home({ url, category,  addToCart}) {
     return (
         <div>
             <h3>Tuotteet {category?.name}</h3>
+           
             {products.map(product => (
                 <div key={product.id}>
                     <p>{product.name}</p>
-                     <button className='btn btn-primary' type='button' onClick={e => addToCart(product)}> Add </button>
+                    <p>{product.price} €</p>
+                     <button className="btn btn-primary" type="button" onClick={e => addToCart(product)}>Lisää ostoskoriin</button>
+                    
                     <div>
-                        <img src={url + 'images/' + product.image} alt="" />
+                        {/* <img src={url + 'images/' + product.image} alt="" /> */}
                     </div>
                 </div>
             ))}
