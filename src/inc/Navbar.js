@@ -20,7 +20,7 @@ export default function Navbar({url, cart, setCategory}) {
           alert(error.response.data.error)
         }
       })
-  }, [])
+  }, [url])
 
   return (
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
