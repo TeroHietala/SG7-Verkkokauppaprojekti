@@ -2,8 +2,6 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 
-//const url = 'http://localhost/verkkokauppa/';
-
 export default function Home({url, category, addToCart}) {
     const [products, setProducts] = useState([]);
 
@@ -24,7 +22,7 @@ export default function Home({url, category, addToCart}) {
                 })
         }
 
-    }, [category])
+    }, [category, url])
 
     return (
         <div>
