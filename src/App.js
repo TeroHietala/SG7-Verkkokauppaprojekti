@@ -37,16 +37,40 @@ function App() {
     }
   }, [location.state])
 
-  function addToCart(product) {
 
-    const newCart = [...cart, product]; // Create new table
-    setCart(newCart); // update state variable.
-    localStorage.setItem('cart', JSON.stringify(newCart));
+// LISÄÄ OSTOSKORIIN
+function addToCart(product) {
+    if (cart.some(item => item.id === product.id)) {
+        const existingProduct = cart.filter(item => item.id === product.id);
+        updateAmount(parseInt(existingProduct[0].amount) +1,product);
+    } else {
+        product["amount"] = 1;
+        const newCart = [...cart,product]; // Create new table
+        setCart(newCart); // update state variable.
+        localStorage.setItem('Cart',JSON.stringify(newCart));
+    }
 
+}
+
+// POISTA OSTOSKORISTA
+    function removeFromCart(product) {
+    const itemsWithoutRemoved = cart.filter(item => item.id !== product.id);
+    setCart(itemsWithoutRemoved);
+    localStorage.setItem('cart', JSON.stringify(itemsWithoutRemoved));
   }
+
+// MUUTA OSTOSKORIA
+  function updateAmount(amount, product) {
+    product.amount = amount;
+    const index = cart.findIndex((item => item.id === product.id));
+    const modifiedCart = Object.assign([...cart],{[index]: product});
+    setCart(modifiedCart);
+    localStorage.setItem('cart',JSON.stringify(modifiedCart));
+}
+
   return (
     <>
-      <Navbar url={URL} setCategory={setCategory} cart={cart} setCart={setCart} />
+      <Navbar url={URL} setCategory={setCategory} cart={cart} />
       <Header />
       <div id="content" className="container-fluid">
         <Switch>
@@ -73,7 +97,6 @@ function App() {
               <Order
                 url={URL}
                 cart={cart}
-
                 //empty={emptyCard}
                 removeFromCart={removeFromCart}
               />
@@ -85,12 +108,6 @@ function App() {
       <Footer />
     </>
   );
-
-  function removeFromCart(product) {
-    const itemsWithoutRemoved = cart.filter(item => item.id !== product.id);
-    setCart(itemsWithoutRemoved);
-    localStorage.setItem('cart', JSON.stringify(itemsWithoutRemoved));
-  }
 
 }
 
