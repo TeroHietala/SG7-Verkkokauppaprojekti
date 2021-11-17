@@ -22,6 +22,7 @@ function App() {
   const [category, setCategory] = useState(null); //tuote kategoriat
   //const [searchPharse, setSearchPharse] = useState('')
   const [cart, setCart] = useState([]); //shopping cart
+  const [discount, setDiscount] = useState([]);
 
   let location = useLocation();
 
@@ -86,6 +87,19 @@ function addToCart(product) {
             exact
           />
           <Route path="/inc/Discount" component={Discount}  />
+
+          <Route
+            path="/inc/Discount" render={() =>
+              <Home
+                url={URL}
+                discount={discount}
+                addToCart={addToCart}
+                cart={cart}
+              />
+            }
+            exact
+          />
+
           <Route path="/inc/GDPR" component={GDPR}  />
           <Route path="/inc/ContactUs" component={ContactUs}  />
           <Route path="/inc/Maksutavat" component={Maksutavat}  />
