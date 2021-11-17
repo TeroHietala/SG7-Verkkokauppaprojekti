@@ -16,6 +16,7 @@ import GDPR from './inc/GDPR';
 import Maksutavat from './inc/Maksutavat';
 import Takuu from './inc/Takuu';
 import Toimitusehdot from './inc/Toimitusehdot';
+
 const URL = 'http://localhost/verkkokauppa/';
 
 function App() {
