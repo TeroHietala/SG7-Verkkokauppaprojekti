@@ -16,12 +16,14 @@ import GDPR from './inc/GDPR';
 import Maksutavat from './inc/Maksutavat';
 import Takuu from './inc/Takuu';
 import Toimitusehdot from './inc/Toimitusehdot';
+
 const URL = 'http://localhost/verkkokauppa/';
 
 function App() {
   const [category, setCategory] = useState(null); //tuote kategoriat
   //const [searchPharse, setSearchPharse] = useState('')
   const [cart, setCart] = useState([]); //shopping cart
+  const [discount, setDiscount] = useState([]);
 
   let location = useLocation();
 
@@ -86,6 +88,19 @@ function addToCart(product) {
             exact
           />
           <Route path="/inc/Discount" component={Discount}  />
+
+          <Route
+            path="/inc/Discount" render={() =>
+              <Home
+                url={URL}
+                discount={discount}
+                addToCart={addToCart}
+                cart={cart}
+              />
+            }
+            exact
+          />
+
           <Route path="/inc/GDPR" component={GDPR}  />
           <Route path="/inc/ContactUs" component={ContactUs}  />
           <Route path="/inc/Maksutavat" component={Maksutavat}  />
