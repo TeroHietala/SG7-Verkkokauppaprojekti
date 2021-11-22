@@ -41,7 +41,7 @@ function App() {
 
 
 // LISÄÄ OSTOSKORIIN
-function addToCart(product, alet) {
+function addToCart(product) {
     if (cart.some(item => item.id === product.id)) {
         const existingProduct = cart.filter(item => item.id === product.id);
         updateAmount(parseInt(existingProduct[0].amount) +1,product);
