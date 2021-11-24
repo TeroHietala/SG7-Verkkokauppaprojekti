@@ -16,6 +16,7 @@ import GDPR from './inc/GDPR';
 import Maksutavat from './inc/Maksutavat';
 import Takuu from './inc/Takuu';
 import Toimitusehdot from './inc/Toimitusehdot';
+import Holder from './Holder';
 
 const URL = 'http://localhost/verkkokauppa/';
 
@@ -71,6 +72,7 @@ function addToCart(product) {
 }
 
   return (
+    <div className="appi">
     <>
       <Navbar url={URL} setCategory={setCategory} cart={cart} />
       <Header />
@@ -119,9 +121,11 @@ function addToCart(product) {
             exact
           />
         </Switch>
+
       </div>
       <Footer />
     </>
+    </div>
   );
 
 }

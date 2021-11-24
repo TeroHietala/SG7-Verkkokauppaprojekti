@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
-        <footer className="footer bg-dark">
+        <footer className="footer">
             <div className="container-fluid">
             <div class="row">
                 <div class="column">

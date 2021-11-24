@@ -23,7 +23,8 @@ export default function Navbar({url, cart, setCategory}) {
   }, [url])
 
   return (
-    <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div className="navi">
+    <nav className="navbar navbar-expand-md navbar-dark fixed-top">
       <div className="container-fluid">
 
         <Link className="navbar-brand" to="/">Nuotti shop</Link>
@@ -71,5 +72,6 @@ export default function Navbar({url, cart, setCategory}) {
 
       </div>
     </nav>
+    </div>
   )
 }
