@@ -11,11 +11,7 @@
     "bootstrap-icons": "^1.7.0",
     "carousel": "^0.0.3",
     "chokidar": "^3.5.2",
-<<<<<<< HEAD
-    "img": "^3.0.3",
-=======
     "createref": "^0.5.0",
->>>>>>> 73b562bf359cb3127428d3b4105bae716f684155
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.2",
     "react-carousel-minimal": "^1.4.1",
