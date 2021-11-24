@@ -3,16 +3,16 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 export default function Discount({discount, url, addToCart}) {
-    const [alet, setDiscount] = useState([]);
+    const [discounts, setDiscounts] = useState([]);
 
     useEffect(() => {
         if (discount !== null) {
-        const discounts = "http://localhost/verkkokauppa/products/getdiscount.php/";
-        axios.get(discounts) 
-    
+        const discountti = "http://localhost/verkkokauppa/products/getdiscount.php/";
+
+        axios.get(discountti) 
             .then((response) => {
                 const json = response.data;
-                setDiscount(json);
+                setDiscounts(json);
             }).catch(error => {
                 if (error.response === undefined) {
                     alert(error);
@@ -24,13 +24,13 @@ export default function Discount({discount, url, addToCart}) {
     }, [discount, url])
 
     return (
-        <div>
+        <div className="container">
             <h3>Tarjous tuotteet</h3>
-            {alet.map(alet => (
-                <div key={alet.id}>
-                    <p>{alet.name}</p>
-                    <p>{alet.price} €</p>
-                     <button className="btn btn-primary" type="button" onClick={e => addToCart(alet)}>Lisää ostoskoriin</button>
+            {discounts.map(discount => (
+                <div key={discount.id}>
+                    <p>{discount.name}</p>
+                    <p>{discount.price} €</p>
+                     <button className="btn btn-primary" type="button" onClick={e => addToCart(discount)}>Lisää ostoskoriin</button>
                     
                     <div>
                         {/* <img src={url + 'images/' + product.image} alt="" /> */}

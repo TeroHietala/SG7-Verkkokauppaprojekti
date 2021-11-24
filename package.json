@@ -11,7 +11,11 @@
     "bootstrap-icons": "^1.7.0",
     "carousel": "^0.0.3",
     "chokidar": "^3.5.2",
+<<<<<<< HEAD
     "img": "^3.0.3",
+=======
+    "createref": "^0.5.0",
+>>>>>>> 73b562bf359cb3127428d3b4105bae716f684155
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.2",
     "react-carousel-minimal": "^1.4.1",
@@ -23,6 +27,7 @@
     "react-uuid": "^1.0.2",
     "route": "^0.2.5",
     "router": "^1.3.5",
+    "useref": "^1.4.3",
     "uuid": "^8.3.2",
     "uuidv4": "^6.2.12",
     "web-vitals": "^1.1.2"
