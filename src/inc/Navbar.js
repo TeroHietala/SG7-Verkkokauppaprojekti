@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Cart from './Cart';
+import SearchBar from "./SearchBar";
 
 export default function Navbar({url, cart, setCategory}) {
 
@@ -58,8 +59,7 @@ export default function Navbar({url, cart, setCategory}) {
 
             <li className="nav-item">
               <Link className="nav-link" aria-current="page" to="/inc/Discount">Alet</Link>
-            </li>
-
+            </li>   
 
         </ul>
         <ul className="navbar-nav ml-auto">
