@@ -16,7 +16,6 @@ import GDPR from './inc/GDPR';
 import Maksutavat from './inc/Maksutavat';
 import Takuu from './inc/Takuu';
 import Toimitusehdot from './inc/Toimitusehdot';
-import SearchBar from './inc/SearchBar';
 
 const URL = 'http://localhost/verkkokauppa/';
 
@@ -73,7 +72,8 @@ function addToCart(product) {
 
   return (
     <>
-      <Navbar url={URL} setCategory={setCategory} cart={cart} SearchBar={SearchBar} />
+    
+      <Navbar url={URL} setCategory={setCategory} cart={cart} />
       <Header />
       <div id="content" className="container-fluid">
         <Switch>
@@ -101,15 +101,7 @@ function addToCart(product) {
             }
             exact
           />
-          <Route 
-          path="/inc/SearchBar"
-          render={() =>
-            <SearchBar
-              url={URL}
-            />
-          }
           
-          />
           <Route path="/inc/GDPR" component={GDPR}  />
           <Route path="/inc/ContactUs" component={ContactUs}  />
           <Route path="/inc/Maksutavat" component={Maksutavat}  />
