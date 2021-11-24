@@ -24,7 +24,7 @@ export default function Discount({discount, url, addToCart}) {
     }, [discount, url])
 
     return (
-        <div>
+        <div className="container">
             <h3>Tarjous tuotteet</h3>
             {alet.map(alet => (
                 <div key={alet.id}>
