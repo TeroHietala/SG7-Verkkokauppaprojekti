@@ -25,9 +25,9 @@ export default function Order({ url, cart, removeFromCart, updateAmount}) {
         }
     }, [cart])
 
-    function changeAmount(e,product,index) {
-        // updateAmount(e.target.value,product)
-        setInputIndex(index);
+    function changeAmount(e,product/*,index*/) {
+        updateAmount(e.target.value,product)
+        // setInputIndex(index);
     }
 
     return (
@@ -43,8 +43,8 @@ export default function Order({ url, cart, removeFromCart, updateAmount}) {
 
                 ref={inputs[index]}
                 style={{width: '60px'}}
-                type="number" step="1" min="1"
-                onChange={e => changeAmount(e,product,index)}
+                type="number" step="1" min="1" max="100"
+                onChange={e => changeAmount(e,product/*,index*/)}
                 value={product.amount}/></td>
 
                     <td style={{ padding: 15 }}><a href="#" onClick={() => removeFromCart(product)}>Delete</a></td>
