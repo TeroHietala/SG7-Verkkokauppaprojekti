@@ -1,6 +1,7 @@
 import React from "react";
 import uuid from 'react-native-uuid';
 import { useState, useEffect, useRef, createRef } from "react";
+import { alignPropType } from "react-bootstrap/esm/types";
 
 
 export default function Order({ url, cart, removeFromCart, updateAmount}) {
@@ -12,6 +13,7 @@ export default function Order({ url, cart, removeFromCart, updateAmount}) {
     // const [finished, setFinished] = useState(false);
     const [inputs, setInputs] = useState([]);
     const [inputIndex, setInputIndex] = useState(-1);
+    // const [removet, setRemovet] = ('');
 
     useEffect(() => {
         for (let i = 0; i < cart.length; i++) {
@@ -25,16 +27,15 @@ export default function Order({ url, cart, removeFromCart, updateAmount}) {
         }
     }, [cart])
 
-    function changeAmount(e,product/*,index*/) {
+    function changeAmount(e,product,index) {
         updateAmount(e.target.value,product)
-        // setInputIndex(index);
+        setInputIndex(index);
     }
 
     return (
         <tr>
             <h3>Ostoskori</h3>
             {cart.map((product,index) => (
-                // sum+=parseFloat(product.price) summan muuttamisen koodi?
                 <tr key={uuid.v4()}>
                     <td>{product.name}</td>
                     <td style={{padding: 15}}>{product.price} €</td>
@@ -44,12 +45,13 @@ export default function Order({ url, cart, removeFromCart, updateAmount}) {
                 ref={inputs[index]}
                 style={{width: '60px'}}
                 type="number" step="1" min="1" max="100"
-                onChange={e => changeAmount(e,product/*,index*/)}
+                onChange={e => changeAmount(e,product,index)}
                 value={product.amount}/></td>
 
                     <td style={{ padding: 15 }}><a href="#" onClick={() => removeFromCart(product)}>Delete</a></td>
                 </tr>
             ))}
         </tr>
+
     );
 }
