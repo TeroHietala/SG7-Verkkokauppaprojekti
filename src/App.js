@@ -66,7 +66,7 @@ function App() {
   function updateAmount(amount, product) {
     product.amount = amount;
     const index = cart.findIndex((item => item.id === product.id));
-    const modifiedCart = Object.assign([...cart], { [index]: product });
+    const modifiedCart = Object.assign([...cart],{[index]:product});
     setCart(modifiedCart);
     localStorage.setItem('cart', JSON.stringify(modifiedCart));
   }
@@ -119,6 +119,7 @@ function App() {
                 cart={cart}
                 //empty={emptyCard}
                 removeFromCart={removeFromCart}
+                updateAmount={updateAmount}
               />
             }
             exact
