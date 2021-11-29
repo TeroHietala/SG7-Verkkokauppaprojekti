@@ -17,6 +17,7 @@ import Maksutavat from './inc/Maksutavat';
 import Takuu from './inc/Takuu';
 import Toimitusehdot from './inc/Toimitusehdot';
 import Login from './inc/Login';
+import Holder from './Holder';
 
 const URL = 'http://localhost/verkkokauppa/';
 
@@ -65,6 +66,7 @@ function App() {
   function empty() {
     localStorage.setItem('cart', JSON.stringify(cart))
     localStorage.clear();
+    window.location.reload(false);
   }
 
 
@@ -83,6 +85,7 @@ function App() {
       <Navbari url={URL} setCategory={setCategory} cart={cart} />
       <Header />
       <div id="content" className="container-fluid">
+
         <Switch>
           <Route path="/Home" component={Home} />
           <Route
@@ -126,6 +129,7 @@ function App() {
             }
             exact
           />
+
           <Route path="/" component={NotFound} />
         </Switch>
 
