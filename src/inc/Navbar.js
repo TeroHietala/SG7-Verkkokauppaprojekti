@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Cart from './Cart';
 import Icon from "./Icon";
+import IconSearch from "./IconSeach";
 
 export default function Navbar({ url, cart, icon }) {
 
@@ -60,6 +61,9 @@ export default function Navbar({ url, cart, icon }) {
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/inc/Discount">Alet</a>
+            </li>
+            <li class="nav-item">
+              <IconSearch icon={icon}/>
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
