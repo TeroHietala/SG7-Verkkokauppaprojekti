@@ -79,7 +79,7 @@ function App() {
   }
 
   return (
-    <div className="appi">
+    <div className="appi container-fluid">
     <>
       <Navbari url={URL} setCategory={setCategory} cart={cart} />
       <Header />
@@ -131,9 +131,9 @@ function App() {
 
           <Route path="/" component={NotFound} />
         </Switch>
-
+        <Footer />
       </div>
-      <Footer />
+
     </>
     </div>
   );
