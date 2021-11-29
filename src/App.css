@@ -1,34 +1,57 @@
 /* Omat */
+body {
+  background-color: #101115;
+  margin-bottom: 20%;
+  color:rgb(236, 236, 236);
+}
 .container {
   margin-top: 50px;
-}
-footer .container {
-  margin-top: 0px;
+  color:rgb(236, 236, 236);
 }
 
 footer {
+  position:relative;
   bottom: 0;
   width: 100%;
   border: 0px;
   text-align: center;
+  background-color: #101115;
 
 }
 .column {
   float: left;
   width: 33.33%;
   padding: 10px;
-  color:rgb(88, 85, 85);
+  color:rgb(126, 126, 126);
 }
 footer li {
   list-style-type: none;
   text-align: left;
 }
-footer ul li a {
-  color:rgb(107, 107, 107);
+footer ul li a,
+a:visited {
+  color: #9a3a07;
 }
 #header {
-   background-image: url(./banner.png);
-   display: block;
+  opacity: 40%;
+  background-image: url(./banner.png);
+  background-repeat: no-repeat;
+  background-color: #101115;
   height: 300px;
-  background-size: contain;
+  background-size: cover;
+
+}
+
+.appi{
+  background-color: #101115;
+
+}
+
+.empty_button {
+  background-color: saddlebrown;
+  color:seagreen
+}
+
+.container .karuselli {
+  margin-bottom: 20%;
 }

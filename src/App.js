@@ -17,6 +17,7 @@ import Maksutavat from './inc/Maksutavat';
 import Takuu from './inc/Takuu';
 import Toimitusehdot from './inc/Toimitusehdot';
 import Login from './inc/Login';
+import Holder from './Holder';
 
 const URL = 'http://localhost/verkkokauppa/';
 
@@ -52,7 +53,6 @@ function App() {
       setCart(newCart); // update state variable.
       localStorage.setItem('Cart', JSON.stringify(newCart));
     }
-
   }
 
   // POISTA OSTOSKORISTA
@@ -62,20 +62,29 @@ function App() {
     localStorage.setItem('cart', JSON.stringify(itemsWithoutRemoved));
   }
 
+  function empty() {
+    localStorage.clear(cart);
+    window.location.reload(false);
+
+  }
+
+
   // MUUTA OSTOSKORIA
   function updateAmount(amount, product) {
     product.amount = amount;
     const index = cart.findIndex((item => item.id === product.id));
-    const modifiedCart = Object.assign([...cart], { [index]: product });
+    const modifiedCart = Object.assign([...cart],{[index]:product});
     setCart(modifiedCart);
     localStorage.setItem('cart', JSON.stringify(modifiedCart));
   }
 
   return (
+    <div className="appi">
     <>
       <Navbari url={URL} setCategory={setCategory} cart={cart} />
       <Header />
       <div id="content" className="container-fluid">
+
         <Switch>
           <Route path="/Home" component={Home} />
           <Route
@@ -89,19 +98,15 @@ function App() {
             }
             exact
           />
-          <Route path="/inc/Discount" component={Discount} />
-          
-          <Route
-            path="/inc/Discount" render={() =>
-              <Route
-                url={URL}
-                discount={discount}
-                addToCart={addToCart}
-                cart={cart}
-              />
-            }
-            exact
-          />
+          <Route path="/inc/Discount" render={() => 
+            <Discount 
+            url={URL}
+            addToCart={addToCart}
+            cart={cart}
+            />
+          }
+
+           />
 
           <Route path="/inc/Login" component={Login} />
           <Route path="/inc/Register" component={Register} />
@@ -116,17 +121,21 @@ function App() {
               <Order
                 url={URL}
                 cart={cart}
-                //empty={emptyCard}
+                empty={empty}
                 removeFromCart={removeFromCart}
+                updateAmount={updateAmount}
               />
             }
             exact
           />
+
           <Route path="/" component={NotFound} />
         </Switch>
+
       </div>
       <Footer />
     </>
+    </div>
   );
 }
 
