@@ -90,7 +90,7 @@ function App() {
             exact
           />
           <Route path="/inc/Discount" component={Discount} />
-
+          
           <Route
             path="/inc/Discount" render={() =>
               <Route
