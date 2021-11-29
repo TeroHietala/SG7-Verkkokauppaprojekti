@@ -30,9 +30,11 @@ export default function Order({ url, cart, removeFromCart, updateAmount}) {
         // setInputIndex(index);
     }
 
+
     return (
-        <tr>
+        <div className="order">
             <h3>Ostoskori</h3>
+        <tr>
             {cart.map((product,index) => (
                 // sum+=parseFloat(product.price) summan muuttamisen koodi?
                 <tr key={uuid.v4()}>
@@ -50,6 +52,8 @@ export default function Order({ url, cart, removeFromCart, updateAmount}) {
                     <td style={{ padding: 15 }}><a href="#" onClick={() => removeFromCart(product)}>Delete</a></td>
                 </tr>
             ))}
+
         </tr>
+        </div>
     );
 }
