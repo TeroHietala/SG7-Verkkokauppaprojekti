@@ -35,6 +35,7 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty})
 
 
     return (
+    <div className="container">
         <tr>
             <h3>Ostoskori</h3>
         <tr>
@@ -62,5 +63,6 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty})
             </tr>
         </tr>
         </tr>
+    </div>
     );
 }

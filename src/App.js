@@ -65,9 +65,7 @@ function App() {
   function empty() {
     localStorage.clear(cart);
     window.location.reload(false);
-
   }
-
 
   // MUUTA OSTOSKORIA
   function updateAmount(amount, product) {
