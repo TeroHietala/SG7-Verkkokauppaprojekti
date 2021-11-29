@@ -105,18 +105,6 @@ function App() {
 
            />
 
-          {/* <Route
-            path="/inc/Discount" setCart={setCart} render={() =>
-              <Discount
-                url={URL}
-                discount={discount}
-                addToCart={addToCart}
-                cart={cart}
-              />
-            }
-            exact
-          /> */}
-
           <Route path="/inc/Login" component={Login} />
           <Route path="/inc/Register" component={Register} />
           <Route path="/inc/GDPR" component={GDPR} />
