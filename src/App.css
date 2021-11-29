@@ -10,7 +10,8 @@ body {
 }
 
 footer {
-  position: fixed;
+  position:relative;
+  bottom: 0;
   width: 100%;
   border: 0px;
   text-align: center;
@@ -20,7 +21,7 @@ footer {
 .row .column {
   float: left;
   width: 33.33%;
-  padding: 1em;
+  padding: 10px;
   color:rgb(126, 126, 126);
 }
 footer li {
@@ -44,4 +45,13 @@ a:visited {
 .appi{
   background-color: #101115;
 
+}
+
+.empty_button {
+  background-color: saddlebrown;
+  color:seagreen
+}
+
+.container .karuselli {
+  margin-bottom: 20%;
 }

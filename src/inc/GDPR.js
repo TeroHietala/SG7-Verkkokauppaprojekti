@@ -6,8 +6,8 @@ export default function GDPR() {
         window.open("https://eur-lex.europa.eu/legal-content/FI/TXT/?uri=CELEX%3A32016R0679#d1e2144-1-1");
       };
     return (
-        <div>
-                <h3>Rekisteri- ja tietosuojaseloste</h3>
+        <div className="container">
+                            <h3>Rekisteri- ja tietosuojaseloste</h3>
                 <p>
                     Tämä on Yrityksen EU:n yleisen tietosuoja-asetuksen (GDPR) mukainen rekisteri- ja tietosuojaseloste. Laadittu 16.11.2021. Viimeisin muutos 16.11.2021.
                 </p>

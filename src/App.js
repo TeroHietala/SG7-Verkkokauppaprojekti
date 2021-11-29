@@ -78,7 +78,7 @@ function App() {
   }
 
   return (
-    <div className="appi container-fluid">
+    <div className="appi">
     <>
       <Navbari url={URL} setCategory={setCategory} cart={cart} />
       <Header />
