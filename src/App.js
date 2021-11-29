@@ -62,6 +62,12 @@ function App() {
     localStorage.setItem('cart', JSON.stringify(itemsWithoutRemoved));
   }
 
+  function empty() {
+    localStorage.setItem('cart', JSON.stringify(cart))
+    localStorage.clear();
+  }
+
+
   // MUUTA OSTOSKORIA
   function updateAmount(amount, product) {
     product.amount = amount;
@@ -90,19 +96,15 @@ function App() {
             }
             exact
           />
-          <Route path="/inc/Discount" component={Discount} />
+          <Route path="/inc/Discount" render={() => 
+            <Discount 
+            url={URL}
+            addToCart={addToCart}
+            cart={cart}
+            />
+          }
 
-          <Route
-            path="/inc/Discount" render={() =>
-              <Route
-                url={URL}
-                discount={discount}
-                addToCart={addToCart}
-                cart={cart}
-              />
-            }
-            exact
-          />
+           />
 
           <Route path="/inc/Login" component={Login} />
           <Route path="/inc/Register" component={Register} />
@@ -117,7 +119,7 @@ function App() {
               <Order
                 url={URL}
                 cart={cart}
-                //empty={emptyCard}
+                empty={empty}
                 removeFromCart={removeFromCart}
                 updateAmount={updateAmount}
               />
