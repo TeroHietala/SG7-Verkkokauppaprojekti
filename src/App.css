@@ -1,13 +1,16 @@
 /* Omat */
+body {
+  background-color: #101115;
+  margin-bottom: 20%;
+  color:rgb(236, 236, 236);
+}
 .container {
   margin-top: 50px;
-}
-footer .container {
-  margin-top: 0px;
+  color:rgb(236, 236, 236);
 }
 
 footer {
-  position:fixed;
+  position:relative;
   bottom: 0;
   width: 100%;
   border: 0px;
@@ -19,13 +22,14 @@ footer {
   float: left;
   width: 33.33%;
   padding: 10px;
-  color:rgb(88, 85, 85);
+  color:rgb(126, 126, 126);
 }
 footer li {
   list-style-type: none;
   text-align: left;
 }
-footer ul li a {
+footer ul li a,
+a:visited {
   color: #9a3a07;
 }
 #header {
@@ -40,4 +44,14 @@ footer ul li a {
 
 .appi{
   background-color: #101115;
+
+}
+
+.empty_button {
+  background-color: saddlebrown;
+  color:seagreen
+}
+
+.container .karuselli {
+  margin-bottom: 20%;
 }

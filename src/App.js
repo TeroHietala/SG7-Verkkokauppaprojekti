@@ -66,7 +66,6 @@ function App() {
   function empty() {
     localStorage.setItem('cart', JSON.stringify(cart))
     localStorage.clear();
-    window.location.reload(false);
   }
 
 

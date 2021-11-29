@@ -34,7 +34,7 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty})
 
 
     return (
-    <div>
+    <div className="container">
         <tr>
             <h3>Ostoskori</h3>
         <tr>
@@ -54,7 +54,7 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty})
                     <td style={{ padding: 15 }}><a href="#" onClick={() => removeFromCart(product)}>Delete</a></td>
                 </tr>
             ))}
-            <button onClick={() => empty()}>CLEAR</button>
+            <button className="empty_button" onClick={() => empty()}>CLEAR</button>
         </tr>
         </tr>
     </div>
