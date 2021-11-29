@@ -18,6 +18,7 @@ import Takuu from './inc/Takuu';
 import Toimitusehdot from './inc/Toimitusehdot';
 import Login from './inc/Login';
 import Holder from './Holder';
+import SearchBar from './inc/SearchBar';
 
 const URL = 'http://localhost/verkkokauppa/';
 
@@ -113,6 +114,18 @@ function App() {
           <Route path="/inc/Maksutavat" component={Maksutavat} />
           <Route path="/inc/Takuu" component={Takuu} />
           <Route path="/inc/Toimitusehdot" component={Toimitusehdot} />
+
+          <Route 
+            path="/inc/SearchBar" render={() =>
+              <SearchBar
+              url={URL}
+              //result={result}
+              addToCart={addToCart}
+              cart={cart}
+              />
+          }
+          exact
+          />
 
           <Route
             path="/inc/Order" setCart={setCart} render={() =>
