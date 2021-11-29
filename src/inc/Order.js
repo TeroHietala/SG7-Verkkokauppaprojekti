@@ -1,10 +1,10 @@
 import React from "react";
 import uuid from 'react-native-uuid';
-import { useState, useEffect, useRef, createRef } from "react";
+import { useState, useEffect, createRef } from "react";
 import { alignPropType } from "react-bootstrap/esm/types";
 
 
-export default function Order({ url, cart, removeFromCart, updateAmount}) {
+export default function Order({ url, cart, removeFromCart, updateAmount, empty}) {
     // const [firstname, setFirstname] = useState('');
     // const [lastname, setLastname] = useState('');
     // const [address, setAddress] = useState('');
@@ -19,7 +19,7 @@ export default function Order({ url, cart, removeFromCart, updateAmount}) {
         for (let i = 0; i < cart.length; i++) {
             inputs[i] = createRef();
         }
-    }, [cart.length])
+    }, [inputs])
 
     useEffect(() => {
     if (inputs.length > 0 && inputIndex > -1 && inputs[inputIndex.current] !== null) {
@@ -33,6 +33,7 @@ export default function Order({ url, cart, removeFromCart, updateAmount}) {
     }
 
     return (
+    <div>
         <tr>
             <h3>Ostoskori</h3>
             {cart.map((product,index) => (
@@ -51,7 +52,9 @@ export default function Order({ url, cart, removeFromCart, updateAmount}) {
                     <td style={{ padding: 15 }}><a href="#" onClick={() => removeFromCart(product)}>Delete</a></td>
                 </tr>
             ))}
+            <button onClick={() => empty()}>CLEAR</button>
         </tr>
+    </div>
 
     );
 }
