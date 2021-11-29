@@ -10,18 +10,17 @@ body {
 }
 
 footer {
-
-  bottom: 0;
+  position: fixed;
   width: 100%;
   border: 0px;
   text-align: center;
   background-color: #101115;
 
 }
-.column {
+.row .column {
   float: left;
   width: 33.33%;
-  padding: 10px;
+  padding: 1em;
   color:rgb(126, 126, 126);
 }
 footer li {

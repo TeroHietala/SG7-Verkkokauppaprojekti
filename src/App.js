@@ -129,9 +129,9 @@ function App() {
 
           <Route path="/" component={NotFound} />
         </Switch>
-        <Footer />
-      </div>
 
+      </div>
+      <Footer />
     </>
     </div>
   );
