@@ -95,9 +95,17 @@ function App() {
             }
             exact
           />
-          <Route path="/inc/Discount" component={Discount} />
+          <Route path="/inc/Discount" render={() => 
+            <Discount 
+            url={URL}
+            addToCart={addToCart}
+            cart={cart}
+            />
+          }
 
-          <Route
+           />
+
+          {/* <Route
             path="/inc/Discount" setCart={setCart} render={() =>
               <Discount
                 url={URL}
@@ -107,7 +115,7 @@ function App() {
               />
             }
             exact
-          />
+          /> */}
 
           <Route path="/inc/Login" component={Login} />
           <Route path="/inc/Register" component={Register} />
