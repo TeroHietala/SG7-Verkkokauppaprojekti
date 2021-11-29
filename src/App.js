@@ -53,7 +53,6 @@ function App() {
       setCart(newCart); // update state variable.
       localStorage.setItem('Cart', JSON.stringify(newCart));
     }
-
   }
 
   // POISTA OSTOSKORISTA
@@ -64,8 +63,9 @@ function App() {
   }
 
   function empty() {
-    localStorage.setItem('cart', JSON.stringify(cart))
-    localStorage.clear();
+    localStorage.clear(cart);
+    window.location.reload(false);
+
   }
 
 

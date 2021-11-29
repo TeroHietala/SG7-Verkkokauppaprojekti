@@ -2,6 +2,7 @@ import React from "react";
 import uuid from 'react-native-uuid';
 import { useState, useEffect, createRef } from "react";
 import { alignPropType } from "react-bootstrap/esm/types";
+import Products from "./Products";
 
 
 export default function Order({ url, cart, removeFromCart, updateAmount, empty}) {
@@ -34,7 +35,6 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty})
 
 
     return (
-    <div className="container">
         <tr>
             <h3>Ostoskori</h3>
         <tr>
@@ -44,7 +44,6 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty})
                     <td style={{padding: 15}}>{product.price} €</td>
                     
                 <td><input
-
                 ref={inputs[index]}
                 style={{width: '60px'}}
                 type="number" step="1" min="1" max="100"
@@ -54,10 +53,14 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty})
                     <td style={{ padding: 15 }}><a href="#" onClick={() => removeFromCart(product)}>Delete</a></td>
                 </tr>
             ))}
-            <button className="empty_button" onClick={() => empty()}>CLEAR</button>
+            <tr key={uuid.v4()}>
+                <td className="sumrow"></td>
+                <td className="sumrow"></td>
+                <td className="sumrow"></td>
+                <td className="sumrow"></td>
+                <td className="sumrow"><a href="/#" onClick={() => empty()}>Tyhjennä</a></td>
+            </tr>
         </tr>
         </tr>
-    </div>
-
     );
 }
