@@ -2,12 +2,12 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 
-export default function Discount({discount, url, addToCart}) {
+export default function Discount({ url, discount, addToCart}) {
     const [discounts, setDiscounts] = useState([]);
 
     useEffect(() => {
         if (discount !== null) {
-        const discountti = "http://localhost/verkkokauppa/products/getdiscount.php/";
+        const discountti = url + "products/getdiscount.php/";
 
         axios.get(discountti) 
             .then((response) => {
