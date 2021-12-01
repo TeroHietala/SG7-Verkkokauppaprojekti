@@ -3,6 +3,7 @@ import uuid from 'react-native-uuid';
 import { useState, useEffect, createRef } from "react";
 import { alignPropType } from "react-bootstrap/esm/types";
 import Products from "./Products";
+import Discount from "./Discount";
 
 
 export default function Order({ url, cart, removeFromCart, updateAmount, empty}) {
