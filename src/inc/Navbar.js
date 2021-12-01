@@ -27,9 +27,9 @@ export default function Navbar({ url, cart, icon }) {
 
   return (
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
-        <Link className="nav-link" to={{
+        <Link className="nav-link" id="otsikko" to={{
           pathname: "/Home"
         }}>INSTRUMENT HEAVEN
         </Link>
@@ -71,11 +71,11 @@ export default function Navbar({ url, cart, icon }) {
               }}> Alennukset
               </Link>
             </li>
-            <li class="nav-item">
-              <IconSearch icon={icon} />
-            </li>
           </ul>
           <ul className="navbar-nav ml-auto">
+          <li class="nav-item">
+              <IconSearch icon={icon} />
+            </li>
             <li className="nav-item">
               <Icon icon={icon} />
             </li>
