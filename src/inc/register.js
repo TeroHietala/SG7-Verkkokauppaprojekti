@@ -49,7 +49,7 @@ export default function Register() {
                 <input placeholder="Helsinki" value={city} onChange={e => setCity(e.target.value)} /><br />
                 <label>Puhelin numero</label><br />
                 <input placeholder="0501231234" value={phone} onChange={e => setPhone(e.target.value)} /><br />
-                <button>Lähetä</button>
+                <button>Rekisteröidy</button>
             </form>
         </div>
     );
