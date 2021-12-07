@@ -65,7 +65,7 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty, 
                     pathname: "/inc/Login",
                     }}> Tilaa
                 </Link>
-                <td className="sumrow"><a href="/inc/Login" onClick={() => Login()}>Tyhjennä</a></td>
+                <td className="sumrow"><a href="/inc/order" onClick={() => empty(null)}>Tyhjennä</a></td>
             </tr>
         </tr>
         </tr>
