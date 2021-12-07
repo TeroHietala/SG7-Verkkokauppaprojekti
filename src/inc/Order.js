@@ -3,9 +3,11 @@ import uuid from 'react-native-uuid';
 import { useState, useEffect, createRef } from "react";
 import { alignPropType } from "react-bootstrap/esm/types";
 import Products from "./Products";
+import Discount from "./Discount";
+import { Link } from "react-router-dom";
 
 
-export default function Order({ url, cart, removeFromCart, updateAmount, empty}) {
+export default function Order({ url, cart, removeFromCart, updateAmount, empty, Login}) {
     // const [firstname, setFirstname] = useState('');
     // const [lastname, setLastname] = useState('');
     // const [address, setAddress] = useState('');
@@ -59,7 +61,11 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty})
                 <td className="sumrow"></td>
                 <td className="sumrow"></td>
                 <td className="sumrow"></td>
-                <td className="sumrow"><a href="/#" onClick={() => empty()}>Tyhjennä</a></td>
+                <Link className="nav-link" to={{
+                    pathname: "/inc/Login",
+                    }}> Tilaa
+                </Link>
+                <td className="sumrow"><a href="/inc/order" onClick={() => empty(null)}>Tyhjennä</a></td>
             </tr>
         </tr>
         </tr>
