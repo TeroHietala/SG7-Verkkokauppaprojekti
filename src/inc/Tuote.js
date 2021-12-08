@@ -1,13 +1,15 @@
 import React from "react";
 
 
-export default function Tuote({product}) {
+
+export default function Tuote({url, product, addToCart}) {
+
     return (
-        <div style={{'padding-top': '50px'}}>
-            <p>{product?.name}</p>
+        <div className="container">
+            <p>{product.name}</p>
+            <img src={url + 'images/' + product.image} alt={product.name} className="pikkukuva" />
             <p>{product.price} €</p>
-            
+            <button className="btn btn-primary" type="button" onClick={e => addToCart(product)}>Lisää ostoskoriin</button>
         </div>
     )
-
 }

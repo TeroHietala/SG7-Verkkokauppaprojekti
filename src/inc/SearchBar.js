@@ -27,28 +27,6 @@ export default function SearchBar({ url, addToCart }) {
     }, [])
 
     return (
-<<<<<<< HEAD
-        <div>
-            <h3>Etsi tuotteita</h3>
-            <input type="text" placeholder="Etsi tuote nimellä" onChange={event => setInput(event.target.value)}></input>
-            <button onClick={(event) => handleSearch(event)}>Etsi</button>
-         <div>
-            
-                <div>
-                    <p>{filteredData.name}</p>
-                    <p>{filteredData.price}</p>
-                     <button className="btn btn-primary" type="button" onClick={e => addToCart(filteredData)}>Lisää ostoskoriin</button>
-                    
-                    <div>
-                        {/* <img src={url + 'images/' + product.image} alt="" /> */}
-                    </div>
-                </div>
-                
-           </div> 
-         </div>       
-    );
-}
-=======
         <div className="container">
             <h1>Kaikki Tuotteet</h1>
             <input type="text" placeholder="Etsi tuotteita"
@@ -75,4 +53,3 @@ export default function SearchBar({ url, addToCart }) {
         </div>
     )
 }
->>>>>>> 1e41f58700ec766251eb7b8cb27fca368b1404f9
