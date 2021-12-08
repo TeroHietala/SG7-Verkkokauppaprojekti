@@ -19,6 +19,7 @@ import Toimitusehdot from './inc/Toimitusehdot';
 import Login from './inc/Login';
 import Holder from './Holder';
 import SearchBar from './inc/SearchBar';
+import Tuote from './inc/Tuote';
 
 const URL = 'http://localhost/verkkokauppa/';
 
@@ -27,6 +28,8 @@ function App() {
   //const [searchPharse, setSearchPharse] = useState('')
   const [cart, setCart] = useState([]); //shopping cart
   const [discount, setDiscount] = useState([]);
+  const [product,setProduct] = useState(null);
+  
 
   let location = useLocation();
 
@@ -38,7 +41,12 @@ function App() {
 
   useEffect(() => {
     if (location.state !== undefined) {
-      setCategory({ id: location.state.id, name: location.state.name });
+      if (location.pathname==="/inc/Products") {
+        setCategory({ id: location.state.id,name: location.state.name });
+      } else if (location.pathname==="/inc/Tuote") {
+        setProduct({ id: location.state.id, name: location.state.name });
+      }
+      
     }
   }, [location.state])
 
@@ -106,6 +114,16 @@ function App() {
           }
 
            />
+           <Route 
+              path="/inc/Tuote"
+              render={() =>
+                <Tuote
+                url={URL}
+                product={product}
+                />
+              }
+            />
+           
 
           <Route path="/inc/Login" component={Login} />
           <Route path="/inc/Register" component={Register} />

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Products({ url, category, addToCart }) {
     const [products, setProducts] = useState([]);
@@ -31,7 +32,18 @@ export default function Products({ url, category, addToCart }) {
 
             {products.map(product => (
                 <div key={product.id}>
-                    <p>{product.name}</p>
+                    <Link
+                        to={{
+                            pathname: '/inc/Tuote',
+                            state: {
+                                id: product.id,
+                                name: product.name,
+                            }
+                        }}
+                    >
+                        <p>{product.name}</p>
+                    </Link>
+                    <img src={url + 'images/' + product.image} alt={product.name} className="pikkukuva" />
                     <p>{product.price} €</p>
                     <button className="btn btn-primary" type="button" onClick={e => addToCart(product)}>Lisää ostoskoriin</button>
 

@@ -29,6 +29,7 @@ export default function Discount({ url, discount, addToCart}) {
             {discounts.map(discount => (
                 <div key={discount.id}>
                     <p>{discount.name}</p>
+                    <img src={url + 'images/' + discount.image} alt={discount.name} className="pikkukuva" />
                     <p>{discount.price} €</p>
                      <button className="btn btn-primary" type="button" onClick={e => addToCart(discount)}>Lisää ostoskoriin</button>
                     
