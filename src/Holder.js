@@ -11,7 +11,7 @@ export default function Holder() {
       <Carousel fade>
         <Carousel.Item interval={2500}>
           <img
-            className="d-block w-100"
+            className="karuselli1 img-fluid"
             src="https://media.geeksforgeeks.org/wp-content/uploads/20210425122739/2-300x115.png"
             alt="Image One"
             
@@ -23,7 +23,7 @@ export default function Holder() {
         </Carousel.Item>
         <Carousel.Item interval={2500}>
           <img
-            className="d-block w-100"
+            className="karuselli1 img-fluid"
             src="https://media.geeksforgeeks.org/wp-content/uploads/20210425122739/2-300x115.png"
             alt="Image Two"
           />
