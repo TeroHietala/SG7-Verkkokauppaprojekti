@@ -60,7 +60,6 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty, 
                 <td className="sumrow"></td>
                 <td className="sumrow"></td>
                 <td className="sumrow"></td>
-                <td className="sumrow"></td>
                 <Link className="nav-link" to={{
                     pathname: "/inc/Login",
                     }}> Tilaa
