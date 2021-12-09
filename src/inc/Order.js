@@ -51,15 +51,15 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty, 
                 style={{width: '60px'}}
                 type="number" step="1" min="1" max="100"
                 onChange={e => changeAmount(e,product,index)}
-                value={product.amount}/></td>
+                        value={product.amount} />
 
+                    <img src={url + 'images/' + product.image} alt={product.name} className="pikkukuva" />
+                    </td> 
                     <td style={{ padding: 15 }}><a href="#" onClick={() => removeFromCart(product)}>Delete</a></td>
                 </tr>
             ))}
             <tr key={uuid.v4()}>
-                <td className="sumrow"></td>
-                <td className="sumrow"></td>
-                <td className="sumrow"></td>
+
                 <Link className="nav-link" to={{
                     pathname: "/inc/Login",
                     }}> Tilaa
