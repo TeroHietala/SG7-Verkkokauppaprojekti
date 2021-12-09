@@ -3,10 +3,7 @@ import { Link} from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-
-// Kirjaudu sisään:
-// sähköposti: testi@testi.fi
-// salasana: salainensana
+// tehkää testikäyttäjä tietokantaan rekisteröitymis sivuilla joilla pääsette sitten kirjautumaan
 
 
 
