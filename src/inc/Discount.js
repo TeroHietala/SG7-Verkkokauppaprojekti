@@ -3,24 +3,24 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export default function Discount({ url, discount, addToCart}) {
+export default function Discount({ url, discount, addToCart }) {
     const [discounts, setDiscounts] = useState([]);
 
     useEffect(() => {
         if (discount !== null) {
-        const discountti = url + "products/getdiscount.php/";
+            const discountti = url + "products/getdiscount.php/";
 
-        axios.get(discountti) 
-            .then((response) => {
-                const json = response.data;
-                setDiscounts(json);
-            }).catch(error => {
-                if (error.response === undefined) {
-                    alert(error);
-                } else {
-                    alert(error.response.data.error);
-                }
-            })
+            axios.get(discountti)
+                .then((response) => {
+                    const json = response.data;
+                    setDiscounts(json);
+                }).catch(error => {
+                    if (error.response === undefined) {
+                        alert(error);
+                    } else {
+                        alert(error.response.data.error);
+                    }
+                })
         }
     }, [discount, url])
 
@@ -36,19 +36,15 @@ export default function Discount({ url, discount, addToCart}) {
                                 id: discount.id,
                                 name: discount.name,
                                 price: discount.price,
-                                image: discount.image  
+                                image: discount.image
                             }
                         }}
                     >
-                    <p>{discount.name}</p>
+                        <p>{discount.name}</p>
+                        <img src={url + 'images/' + discount.image} alt={discount.name} className="pikkukuva" />
                     </Link>
-                    <img src={url + 'images/' + discount.image} alt={discount.name} className="pikkukuva" />
                     <p>{discount.price} €</p>
-                     <button className="btn btn-primary" type="button" onClick={e => addToCart(discount)}>Lisää ostoskoriin</button>
-                    
-                    <div>
-                        {/* <img src={url + 'images/' + product.image} alt="" /> */}
-                    </div>
+                    <button className="btn btn-primary" type="button" onClick={e => addToCart(discount)}>Lisää ostoskoriin</button>
                 </div>
             ))}
         </div>

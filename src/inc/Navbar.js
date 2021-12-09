@@ -25,6 +25,12 @@ export default function Navbar({ url, cart, icon }) {
       })
   }, [url])
 
+  // function emptyUser() {
+  //     sessionStorage.clear();
+  //     //setCustomers([])
+  //     window.location.reload(false);
+  // }
+
   return (
 
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -71,6 +77,19 @@ export default function Navbar({ url, cart, icon }) {
               }}> Alennukset
               </Link>
             </li>
+{/* 
+            <li class="nav-text">
+          {user.map(customer => (
+                  <div key={customer.cust_nro}>
+                      <p>Tervetuloa {customer.first_name} {customer.last_name}
+                      <button onClick={e => emptyUser()}>Logout</button></p>
+                  </div>
+
+              ))}
+           </li>  */}
+
+
+
           </ul>
           <ul className="navbar-nav ml-auto">
           <li class="nav-item">
