@@ -61,7 +61,7 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty, 
             <tr key={uuid.v4()}>
 
                 <Link className="nav-link" to={{
-                    pathname: "/inc/Login",
+                    pathname: "/inc/Tilaa",
                     }}> Tilaa
                 </Link>
                 <td className="sumrow"><a href="/inc/order" onClick={() => empty(null)}>Tyhjennä</a></td>

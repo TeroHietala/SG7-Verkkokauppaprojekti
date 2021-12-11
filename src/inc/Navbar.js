@@ -8,9 +8,55 @@ import IconSearch from "./IconSeach";
 
 export default function Navbar({ url, cart, icon }) {
 
-  //Hakee tietokannasta kategoriat
+  //Tilamuuttuja kategorialle
   const [categories, setCategories] = useState([]);
+  //Tilamuuttujat kirjautumiselle 
+  const [customers, setCustomers] = useState([]);
+  const [mail_username, setMail] = useState('');
+  const [password, setPasswd] = useState('');
 
+  //Hakee ja palauttaa kirjautujan etunimen
+  const login = customers.map((customer) => (
+
+    <p className="nav-text">Tervetuloa {customer.first_name}
+      <Link class="bi bi-box-arrow-right" type="button" onClick={e => emptyUser()}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16">
+          <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z" />
+        </svg>
+      </Link>
+    </p>
+
+  ))
+
+  //Ottaa yhteyden backendiin ja sieltä tulee tieto onko käyttäjä validi
+  function save() {
+    const json = JSON.stringify({ mail_username: mail_username, password: password })
+    axios.post("http://localhost/verkkokauppa/customers/login.php", json)
+      .then((response) => {
+        const json = response.data;
+        setCustomers(json);
+        //tallentaa kirjautuneen käyttäjän sessionStorageen
+        sessionStorage.setItem('user', JSON.stringify(json));
+        console.log(sessionStorage.getItem('user'))
+      }).catch(error => {
+        alert(error.response.data.error)
+      });
+  }
+
+  useEffect(() => {
+    if ('user' in sessionStorage) {
+      setCustomers(JSON.parse(sessionStorage.getItem('user')));
+    }
+  }, [])
+
+  //Poistaa käyttäjän tiedot sessionStoragesta ja tyhjentää customer muuttujan
+  function emptyUser(customers) {
+    sessionStorage.clear(customers);
+    setCustomers([])
+    window.location.reload(false);
+  }
+
+  //Hakee backendistä kategoriat
   useEffect(() => {
     axios.get(url + 'products/getcategories.php')
       .then((response) => {
@@ -25,14 +71,7 @@ export default function Navbar({ url, cart, icon }) {
       })
   }, [url])
 
-  // function emptyUser() {
-  //     sessionStorage.clear();
-  //     //setCustomers([])
-  //     window.location.reload(false);
-  // }
-
   return (
-
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
         <Link className="nav-link" id="otsikko" to={{
@@ -54,7 +93,7 @@ export default function Navbar({ url, cart, icon }) {
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Tuotteet
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <ul class="dropdown-menu" id="tuotteet" aria-labelledby="navbarDropdown">
                 {categories.map(category => (
                   <li key={category.id}>
                     <Link className="dropdown-item"
@@ -77,26 +116,31 @@ export default function Navbar({ url, cart, icon }) {
               }}> Alennukset
               </Link>
             </li>
-{/* 
-            <li class="nav-text">
-          {user.map(customer => (
-                  <div key={customer.cust_nro}>
-                      <p>Tervetuloa {customer.first_name} {customer.last_name}
-                      <button onClick={e => emptyUser()}>Logout</button></p>
-                  </div>
-
-              ))}
-           </li>  */}
-
-
-
+            
           </ul>
           <ul className="navbar-nav ml-auto">
-          <li class="nav-item">
-              <IconSearch icon={icon} />
+            <li class="nav-item dropdown dropstart">
+              <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <Icon icon={icon} />
+              </a>
+              <ul class="dropdown-menu" id="login" aria-labelledby="navbarDropdown">
+                <li >
+                  <p>Kirjaudu</p>
+                  <input placeholder="Sähköposti" defaultValue="Reset" value={mail_username} onChange={e => setMail(e.target.value)} />
+                  <input placeholder="Salasana" type="password" defaultValue="Reset" value={password} onChange={e => setPasswd(e.target.value)} />
+                  <Link className="nav-link" onClick={save} >Kirjaudu</Link>
+                  <Link className="nav-link" aria-current="page" to="/inc/Register">Rekisteröidy</Link>
+                  <p>{login}</p>
+                </li>
+              </ul>
             </li>
-            <li className="nav-item">
-              <Icon icon={icon} />
+          </ul>
+          
+          
+          
+          <ul className="navbar-nav ml-auto">
+            <li class="nav-item">
+              <IconSearch icon={icon} />
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">

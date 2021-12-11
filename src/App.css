@@ -81,3 +81,23 @@ footer a:hover {
 :link {
   text-decoration: none;
 }
+/* Login dropdown */
+#login {
+  font-family: 'Jacques Francois', serif;
+  color: #f0ccab;
+  background-color: #101115;
+  padding: 15px;
+}
+#login input{
+  margin-bottom: 5px;
+}
+/* Tuotteet dropdown */
+#tuotteet {
+  font-family: 'Jacques Francois', serif;
+  color: #f0ccab;
+  background-color: #101115;
+}
+#tuotteet .dropdown-item{
+font-family: 'Jacques Francois', serif;
+color: #f0ccab;
+}
