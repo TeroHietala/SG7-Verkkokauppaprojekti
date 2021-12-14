@@ -16,7 +16,7 @@ import GDPR from './inc/GDPR';
 import Maksutavat from './inc/Maksutavat';
 import Takuu from './inc/Takuu';
 import Toimitusehdot from './inc/Toimitusehdot';
-import Login from './inc/Login';
+import Tilaa from './inc/Tilaa';
 import Holder from './Holder';
 import SearchBar from './inc/SearchBar';
 import Tuote from './inc/Tuote';
@@ -57,7 +57,6 @@ function App() {
     }  
     
   }, [location.state])
-//console.log(location.state)
 
   // LISÄÄ OSTOSKORIIN
   function addToCart(product) {
@@ -136,7 +135,15 @@ function App() {
             />
            
 
-          <Route path="/inc/Login" component={Login} />
+          <Route path="/inc/Tilaa" render={() =>
+          <Tilaa
+          cart={cart}
+          />} 
+          exact
+          />
+
+
+
           <Route path="/inc/Register" component={Register} />
           <Route path="/inc/GDPR" component={GDPR} />
           <Route path="/inc/ContactUs" component={ContactUs} />
@@ -164,6 +171,7 @@ function App() {
                 empty={empty}
                 removeFromCart={removeFromCart}
                 updateAmount={updateAmount}
+                // orderCart={orderCart}
               />
             }
             exact

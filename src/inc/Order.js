@@ -7,16 +7,10 @@ import Discount from "./Discount";
 import { Link } from "react-router-dom";
 
 
-export default function Order({ url, cart, removeFromCart, updateAmount, empty, Login}) {
-    // const [firstname, setFirstname] = useState('');
-    // const [lastname, setLastname] = useState('');
-    // const [address, setAddress] = useState('');
-    // const [zip, setZip] = useState('');
-    // const [city, setCity] = useState('');
-    // const [finished, setFinished] = useState(false);
+export default function Order({ url, cart, removeFromCart, updateAmount, empty}) {
     const [inputs, setInputs] = useState([]);
     const [inputIndex, setInputIndex] = useState(-1);
-    // const [removet, setRemovet] = ('');
+    
 
     useEffect(() => {
         for (let i = 0; i < cart.length; i++) {
@@ -61,7 +55,7 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty, 
             <tr key={uuid.v4()}>
 
                 <Link className="nav-link" to={{
-                    pathname: "/inc/Login",
+                    pathname: "/inc/Tilaa",
                     }}> Tilaa
                 </Link>
                 <td className="sumrow"><a href="/inc/order" onClick={() => empty(null)}>Tyhjennä</a></td>
