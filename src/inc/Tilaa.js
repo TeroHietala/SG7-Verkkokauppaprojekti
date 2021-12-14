@@ -2,11 +2,12 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 
-export default function Tilaa() {
+export default function Tilaa({cart}) {
 
     const [fname, setFname] = useState('');
     const [lname, setLname] = useState('');
     const [order, setOrder] = useState('');
+    const [cart, setCart] = useState('');
 
 // Tallentaa tilauksen tiedot tietokantaan
     function save(e) {
