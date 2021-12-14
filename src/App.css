@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@503&family=Jacques+Francois&family=Pattaya&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+
+/* Omat */
+body {
+  background-color: #101115;
+  margin-bottom: 20%;
+  color:rgb(253, 187, 167);
+}
+.container {
+/*   font-family: 'Jacques Francois', serif; */
+font-family: 'New Tegomin', serif;
+  margin-top: 50px;
+  color:rgb(236, 236, 236);
+}
+
+footer {
+  position:relative;
+  bottom: 0;
+  width: 100%;
+  border: 0px;
+  text-align: center;
+  background-color: #101115;
+
+}
+.row .column {
+  font-family: 'Jacques Francois', serif;
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  color: #f0ccab;
+}
+footer li {
+  list-style-type: none;
+  text-align: left;
+}
+footer ul li a,
+a:visited {
+  color: #dd6b00;
+}
+
+footer a:hover {
+  color: #dd6b00;
+}
+#header {
+  opacity: 30%;
+  background-image: url(./banner.png);
+  background-repeat: no-repeat;
+  background-color: #101115;
+  height: 250px;
+  background-size: cover;
+
+}
+
+.appi{
+  background-color: #101115;
+  font-size: 20px;
+
+}
+.navbar .nav-link{
+  font-family: 'Jacques Francois', serif;
+  color: #f0ccab;
+}
+.navbar .nav-text{
+  font-family: 'Jacques Francois', serif;
+  color: #f0ccab;
+}
+#otsikko {
+
+  font-family: 'Pattaya', sans-serif;
+  font-size: 22px;
+  font-weight:1000;
+  color: #dd6b00;
+  letter-spacing: 7px;
+}
+
+.pikkukuva {
+  height: 25%;
+  width: 25%;
+}
+:link {
+  text-decoration: none;
+}

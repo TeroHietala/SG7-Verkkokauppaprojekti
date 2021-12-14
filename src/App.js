@@ -27,11 +27,8 @@ function App() {
   const [category, setCategory] = useState(null); //tuote kategoriat
   //const [searchPharse, setSearchPharse] = useState('')
   const [cart, setCart] = useState([]); //shopping cart
-  const [discount, setDiscount] = useState([]);
   const [product,setProduct] = useState([]);
-  
-  
-  
+  const [customer, setCustomer] = useState([]);
 
   let location = useLocation();
 
@@ -52,6 +49,15 @@ function App() {
     }
   }, [location.state])
 
+  useEffect(() => {
+    if (location.state !== undefined) {
+      if (location.pathname==="/Home") {
+        setCustomer({ cust_nro: location.state.cust_nro, first_name: location.state.first_name });
+      }
+    }  
+    
+  }, [location.state])
+//console.log(location.state)
 
   // LISÄÄ OSTOSKORIIN
   function addToCart(product) {
@@ -163,6 +169,7 @@ function App() {
             exact
           />
 
+          <Route path="/" component={Home} />
           <Route path="/" component={NotFound} />
         </Switch>
 
