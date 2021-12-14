@@ -101,3 +101,22 @@ footer a:hover {
 font-family: 'Jacques Francois', serif;
 color: #f0ccab;
 }
+#chatbot {
+  font-family: 'Jacques Francois', serif;
+  color: #f0ccab;
+  background-color: #101115;
+}
+#chatbot .sc-iwsKbI {
+  width: 300px;
+  height: 520px;
+}
+#chatbot .sc-EHOje{
+  text-align: center;
+}
+#chatbot .sc-cSHVUG {
+  display: none;
+}
+#chatbot .sc-gZMcBi {
+  width: 280px;
+  font-size: 10px;
+}

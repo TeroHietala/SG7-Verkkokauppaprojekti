@@ -5,8 +5,9 @@ import axios from "axios";
 import Cart from './Cart';
 import Icon from "./Icon";
 import IconSearch from "./IconSeach";
+import Chatbot from "./Chatbot";
 
-export default function Navbar({ url, cart, icon }) {
+export default function Navbar({ url, cart, icon, steps }) {
 
   //Tilamuuttuja kategorialle
   const [categories, setCategories] = useState([]);
@@ -39,7 +40,9 @@ export default function Navbar({ url, cart, icon }) {
         sessionStorage.setItem('user', JSON.stringify(json));
         console.log(sessionStorage.getItem('user'))
       }).catch(error => {
-        alert(error.response.data.error)
+             // TÄMÄ PITÄÄ VIELÄ KORJATA!!!!
+             alert('Väärä käyttäjätunnus tai salasana')
+             window.location.reload(true);
       });
   }
 
@@ -117,6 +120,25 @@ export default function Navbar({ url, cart, icon }) {
               </Link>
             </li>
             
+            <li class="nav-item">
+                <a className="nav-link">{login}</a>
+            </li>
+          </ul>
+         
+          <ul className="navbar-nav ml-auto">
+            <li class="nav-item dropdown dropstart">
+              <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="false" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-dots" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                </svg>
+              </a>
+              <ul class="dropdown-menu" id="chatbot" aria-labelledby="navbarDropdownClickable">
+              <Chatbot 
+              steps={steps} />
+              </ul>
+            </li>
+   
           </ul>
           <ul className="navbar-nav ml-auto">
             <li class="nav-item dropdown dropstart">
