@@ -61,6 +61,10 @@ footer a:hover {
   font-family: 'Jacques Francois', serif;
   color: #f0ccab;
 }
+.navbar .nav-text{
+  font-family: 'Jacques Francois', serif;
+  color: #f0ccab;
+}
 #otsikko {
 
   font-family: 'Pattaya', sans-serif;
@@ -74,7 +78,45 @@ footer a:hover {
   height: 25%;
   width: 25%;
 }
-
 :link {
   text-decoration: none;
+}
+/* Login dropdown */
+#login {
+  font-family: 'Jacques Francois', serif;
+  color: #f0ccab;
+  background-color: #101115;
+  padding: 15px;
+}
+#login input{
+  margin-bottom: 5px;
+}
+/* Tuotteet dropdown */
+#tuotteet {
+  font-family: 'Jacques Francois', serif;
+  color: #f0ccab;
+  background-color: #101115;
+}
+#tuotteet .dropdown-item{
+font-family: 'Jacques Francois', serif;
+color: #f0ccab;
+}
+#chatbot {
+  font-family: 'Jacques Francois', serif;
+  color: #f0ccab;
+  background-color: #101115;
+}
+#chatbot .sc-iwsKbI {
+  width: 300px;
+  height: 520px;
+}
+#chatbot .sc-EHOje{
+  text-align: center;
+}
+#chatbot .sc-cSHVUG {
+  display: none;
+}
+#chatbot .sc-gZMcBi {
+  width: 280px;
+  font-size: 10px;
 }

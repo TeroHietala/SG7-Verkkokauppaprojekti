@@ -16,7 +16,7 @@ import GDPR from './inc/GDPR';
 import Maksutavat from './inc/Maksutavat';
 import Takuu from './inc/Takuu';
 import Toimitusehdot from './inc/Toimitusehdot';
-import Login from './inc/Login';
+import Tilaa from './inc/Tilaa';
 import Holder from './Holder';
 import SearchBar from './inc/SearchBar';
 import Tuote from './inc/Tuote';
@@ -27,11 +27,8 @@ function App() {
   const [category, setCategory] = useState(null); //tuote kategoriat
   //const [searchPharse, setSearchPharse] = useState('')
   const [cart, setCart] = useState([]); //shopping cart
-  const [discount, setDiscount] = useState([]);
   const [product,setProduct] = useState([]);
-  
-  
-  
+  const [customer, setCustomer] = useState([]);
 
   let location = useLocation();
 
@@ -52,6 +49,14 @@ function App() {
     }
   }, [location.state])
 
+  useEffect(() => {
+    if (location.state !== undefined) {
+      if (location.pathname==="/Home") {
+        setCustomer({ cust_nro: location.state.cust_nro, first_name: location.state.first_name });
+      }
+    }  
+    
+  }, [location.state])
 
   // LISÄÄ OSTOSKORIIN
   function addToCart(product) {
@@ -130,7 +135,15 @@ function App() {
             />
            
 
-          <Route path="/inc/Login" component={Login} />
+          <Route path="/inc/Tilaa" render={() =>
+          <Tilaa
+          cart={cart}
+          />} 
+          exact
+          />
+
+
+
           <Route path="/inc/Register" component={Register} />
           <Route path="/inc/GDPR" component={GDPR} />
           <Route path="/inc/ContactUs" component={ContactUs} />
@@ -158,11 +171,13 @@ function App() {
                 empty={empty}
                 removeFromCart={removeFromCart}
                 updateAmount={updateAmount}
+                // orderCart={orderCart}
               />
             }
             exact
           />
 
+          <Route path="/" component={Home} />
           <Route path="/" component={NotFound} />
         </Switch>
 

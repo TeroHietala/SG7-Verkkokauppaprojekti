@@ -4,7 +4,7 @@ export default function Home() {
 
     return (
         <div className="container">
-            <h3>Etusivu</h3>
+            <h3>Etusivu</h3>  
         </div>
     );
 }
