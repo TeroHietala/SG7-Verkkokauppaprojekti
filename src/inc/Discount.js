@@ -41,8 +41,8 @@ export default function Discount({ url, discount, addToCart}) {
                         }}
                     >
                     <p>{discount.name}</p>
-                    </Link>
                     <img src={url + 'images/' + discount.image} alt={discount.name} className="pikkukuva" />
+                    </Link>
                     <p>{discount.price} €</p>
                      <button className="btn btn-primary" type="button" onClick={e => addToCart(discount)}>Lisää ostoskoriin</button>
                     

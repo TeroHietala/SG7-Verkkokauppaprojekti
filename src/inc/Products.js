@@ -32,7 +32,7 @@ export default function Products({ url, category, addToCart }) {
 
             {products.map(product => (
                 <div key={product.id}>
-                    <Link
+                    <Link className="container"
                         to={{
                             pathname: '/inc/Tuote',
                             state: {
@@ -44,8 +44,9 @@ export default function Products({ url, category, addToCart }) {
                         }}
                     >
                         <p>{product.name}</p>
+                        <img src={url + 'images/' + product.image} alt={product.name} className="pikkukuva" />
                     </Link>
-                    <img src={url + 'images/' + product.image} alt={product.name} className="pikkukuva" />
+                   
                     <p>{product.price} €</p>
                     <button className="btn btn-primary" type="button" onClick={e => addToCart(product)}>Lisää ostoskoriin</button>
 
