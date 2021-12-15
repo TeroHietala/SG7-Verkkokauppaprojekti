@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function SearchBar({ url, addToCart }) {
 
     const [allData, setAllData] = useState([]);
     const [searchItem, setSearchItem] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
+    
 
     // Hakee kaikki tuotteet product ja tarjous taulusta
     useEffect(() => {
@@ -41,11 +43,23 @@ export default function SearchBar({ url, addToCart }) {
             }).map((item, id) => {
                 return (           
                     <div key={id} onClick={e => setSearchItem(item)}>
-                        <div>
-                            <img src={url + 'images/' + item.image} alt={item.name} className="pikkukuva" />
-                        </div>
+                        
+                        <Link className="container"
+                        to={{
+                            pathname: '/inc/Tuote',
+                            state: {
+                                id: item.id,
+                                name: item.name,
+                                price: item.price,
+                                image: item.image
+                            }
+                        }}
+                    >
                         <p>{item.name}</p>
-                        <p>{item.price}</p>
+                        <img src={url + 'images/' + item.image} alt={item.name} className="pikkukuva" />
+                    </Link>
+                    <p>{item.price}</p>
+                        
                         <button className="btn btn-primary" type="button" onClick={e => addToCart(item)}>Lisää ostoskoriin</button>
                     </div>               
                 );
