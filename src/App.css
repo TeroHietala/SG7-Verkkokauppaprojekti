@@ -60,6 +60,15 @@ footer a:hover {
 #header {
   height: 400px;
 }
+
+.navbar {
+  background-image: url(./banner.png);
+  background-repeat: no-repeat;
+  background-color: #101115;
+  background-size: cover;
+}
+
+
 .appi{
   background-color: #101115;
   font-size: 20px;
