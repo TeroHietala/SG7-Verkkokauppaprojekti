@@ -67,7 +67,7 @@ function App() {
       product["amount"] = 1;
       const newCart = [...cart, product]; // Create new table
       setCart(newCart); // update state variable.
-      localStorage.setItem('Cart', JSON.stringify(newCart));
+      localStorage.setItem('cart', JSON.stringify(newCart));
     }
   }
 
@@ -135,8 +135,9 @@ function App() {
             />
            
 
-          <Route path="/inc/Tilaa" render={() =>
+            <Route path="/inc/Tilaa" setCart={setCart} render={() =>
           <Tilaa
+          url={URL}
           cart={cart}
           />} 
           exact
