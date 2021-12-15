@@ -136,13 +136,11 @@ function App() {
 
             <Route path="/inc/Tilaa" setCart={setCart} render={() =>
           <Tilaa
-          url={URL}
-          cart={cart}
+                url={URL}
+                cart={cart}
           />} 
           exact
           />
-
-
 
           <Route path="/inc/Register" component={Register} />
           <Route path="/inc/GDPR" component={GDPR} />
@@ -171,7 +169,6 @@ function App() {
                 empty={empty}
                 removeFromCart={removeFromCart}
                 updateAmount={updateAmount}
-                // orderCart={orderCart}
               />
             }
             exact
