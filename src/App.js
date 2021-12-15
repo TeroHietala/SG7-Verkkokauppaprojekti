@@ -17,7 +17,6 @@ import Maksutavat from './inc/Maksutavat';
 import Takuu from './inc/Takuu';
 import Toimitusehdot from './inc/Toimitusehdot';
 import Tilaa from './inc/Tilaa';
-import Holder from './Holder';
 import SearchBar from './inc/SearchBar';
 import Tuote from './inc/Tuote';
 
@@ -67,7 +66,7 @@ function App() {
       product["amount"] = 1;
       const newCart = [...cart, product]; // Create new table
       setCart(newCart); // update state variable.
-      localStorage.setItem('Cart', JSON.stringify(newCart));
+      localStorage.setItem('cart', JSON.stringify(newCart));
     }
   }
 
@@ -135,14 +134,13 @@ function App() {
             />
            
 
-          <Route path="/inc/Tilaa" render={() =>
+            <Route path="/inc/Tilaa" setCart={setCart} render={() =>
           <Tilaa
-          cart={cart}
+                url={URL}
+                cart={cart}
           />} 
           exact
           />
-
-
 
           <Route path="/inc/Register" component={Register} />
           <Route path="/inc/GDPR" component={GDPR} />
@@ -171,7 +169,6 @@ function App() {
                 empty={empty}
                 removeFromCart={removeFromCart}
                 updateAmount={updateAmount}
-                // orderCart={orderCart}
               />
             }
             exact

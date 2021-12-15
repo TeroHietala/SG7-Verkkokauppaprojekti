@@ -2,6 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
 
 /* Omat */
+*{
+  margin:0;
+  padding: 0;
+
+}
+
 body {
   background-color: #101115;
   margin-bottom: 20%;
@@ -21,7 +27,7 @@ footer {
   border: 0px;
   text-align: center;
   background-color: #101115;
-
+  font-size: 16px;
 }
 .row .column {
   font-family: 'Jacques Francois', serif;
@@ -42,7 +48,7 @@ a:visited {
 footer a:hover {
   color: #dd6b00;
 }
-#header {
+/* #header {
   opacity: 30%;
   background-image: url(./banner.png);
   background-repeat: no-repeat;
@@ -50,13 +56,38 @@ footer a:hover {
   height: 250px;
   background-size: cover;
 
+} */
+#header {
+  height: 400px;
 }
+
+.navbar {
+  background-image: url(./banner.png);
+  background-repeat: no-repeat;
+  background-color: #101115;
+  background-size: cover;
+}
+
 
 .appi{
   background-color: #101115;
   font-size: 20px;
 
 }
+.navbar {
+  background-image: url(./banner.png);
+  background-repeat: no-repeat;
+  background-color: #101115;
+  background-size: cover;
+}
+.navbar-toggle-icon .span {
+  color:#dd6b00;
+}
+/* .{
+  color:#dd6b00 !important;
+}
+ */
+
 .navbar .nav-link{
   font-family: 'Jacques Francois', serif;
   color: #f0ccab;
@@ -72,6 +103,10 @@ footer a:hover {
   font-weight:1000;
   color: #dd6b00;
   letter-spacing: 7px;
+}
+.karuselli1 {
+  display: block;
+  width: 100%;
 }
 
 .pikkukuva {
