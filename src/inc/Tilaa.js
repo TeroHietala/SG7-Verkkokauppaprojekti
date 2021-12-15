@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import axios from "axios";
 import uuid from 'react-native-uuid';
-import { empty } from "uuidv4";
 
 export default function Tilaa({url, cart}) {
 
@@ -41,7 +39,7 @@ export default function Tilaa({url, cart}) {
     let sum = 0;
     if (finished === false) {
     return (
-        <div>
+        <div className="container">
             <h3>Ostoskori</h3>
             <table>
                 <tbody>
@@ -56,14 +54,14 @@ export default function Tilaa({url, cart}) {
                         )
                     })}
                 <tr key={uuid.v4()}>
-                    <td className="sumrow"></td>
-                    <td className="sumrow">{sum.toFixed(2)} €</td>
+                    <td></td>
+                    <td>{sum.toFixed(2)} €</td>
                 </tr>
                 </tbody>
             </table>
                 {cart.length > 0 &&
                 <>
-                <h3 className="header">Ostajan tiedot</h3>
+                <h3>Ostajan tiedot</h3>
                     <form onSubmit={order}>
                         <div>
                             <label>Etunimi</label><br />
