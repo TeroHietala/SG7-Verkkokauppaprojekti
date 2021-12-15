@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 
+//Asiakkaan rekisteröintisivu
 export default function Register() {
     const [customer, setCustomer] = useState([]);
     const [fname, setFname] = useState('');
@@ -28,6 +29,18 @@ export default function Register() {
                 alert(error.response.data.error)
             });
     }
+    //Tyhjentää inputit ja muuttujat
+    function clear(e) {
+        e.preventDefault();
+        setFname('')
+        setLname('')
+        setMail('')
+        setPasswd('')
+        setAddr('')
+        setZip('')
+        setCity('')
+        setPhone('')
+    }
 
     return (
         <div className="container">
@@ -49,7 +62,7 @@ export default function Register() {
                 <input placeholder="Helsinki" value={city} onChange={e => setCity(e.target.value)} /><br />
                 <label>Puhelin numero</label><br />
                 <input placeholder="0501231234" value={phone} onChange={e => setPhone(e.target.value)} /><br />
-                <button>Rekisteröidy</button>
+                <button onClick={clear}>Rekisteröidy</button>
             </form>
         </div>
     );

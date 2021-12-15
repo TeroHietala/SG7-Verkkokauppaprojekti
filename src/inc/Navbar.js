@@ -39,6 +39,9 @@ export default function Navbar({ url, cart, icon, steps }) {
         //tallentaa kirjautuneen käyttäjän sessionStorageen
         sessionStorage.setItem('user', JSON.stringify(json));
         console.log(sessionStorage.getItem('user'))
+        //Tyhjentää inputit ja muuttujat
+        setMail('');
+        setPasswd('');
       }).catch(error => {
              // TÄMÄ PITÄÄ VIELÄ KORJATA!!!!
              alert('Väärä käyttäjätunnus tai salasana')
@@ -75,7 +78,7 @@ export default function Navbar({ url, cart, icon, steps }) {
   }, [url])
 
   return (
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
       <div class="container-fluid">
         <Link className="nav-link" id="otsikko" to={{
           pathname: "/Home"

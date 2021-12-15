@@ -42,7 +42,7 @@ a:visited {
 footer a:hover {
   color: #dd6b00;
 }
-#header {
+/* #header {
   opacity: 30%;
   background-image: url(./banner.png);
   background-repeat: no-repeat;
@@ -50,7 +50,18 @@ footer a:hover {
   height: 250px;
   background-size: cover;
 
+} */
+#header {
+  height: 400px;
 }
+
+.navbar {
+  background-image: url(./banner.png);
+  background-repeat: no-repeat;
+  background-color: #101115;
+  background-size: cover;
+}
+
 
 .appi{
   background-color: #101115;
