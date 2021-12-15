@@ -4,7 +4,7 @@ import Logo from "./logo";
 export default function Footer() {
     return (
         <footer className="footer">
-            <div className="container-fluid">
+            <div className="container">
             <div class="row">
                 <div class="column">
                     <h4>Tietoa meistä</h4>
@@ -19,8 +19,8 @@ export default function Footer() {
                     </p>
                 </div>
                 <div class="column">
-                    <h4>Nuottishop 2021</h4>
-                    <Logo />
+                   <Logo />
+                   <p>2021</p>
                 </div>
                 <div class="column">
                     <h4>Ota yhteyttä</h4>

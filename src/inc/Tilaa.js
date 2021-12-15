@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import uuid from 'react-native-uuid';
-
+/* import uuid from 'react-native-uuid';
+ */
 export default function Tilaa({cart}) {
 
     const [fname, setFname] = useState('');

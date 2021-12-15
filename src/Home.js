@@ -3,6 +3,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom'
+import Karuselli from "./karuselli";
+
 
 export default function Home() {
 
@@ -13,12 +15,7 @@ export default function Home() {
           <h4>Kaunis etusivu</h4>
           <Carousel fade>
             <Carousel.Item interval={2500}>
-              <img
-                className="karuselli1"
-                src="https://media.geeksforgeeks.org/wp-content/uploads/20210425122739/2-300x115.png"
-                alt="Image One"
-                
-              />
+              <Karuselli />
               <Carousel.Caption>
                 <h3>AVAJAISETU!</h3>
                 <p></p>
