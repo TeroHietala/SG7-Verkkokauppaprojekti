@@ -17,7 +17,6 @@ import Maksutavat from './inc/Maksutavat';
 import Takuu from './inc/Takuu';
 import Toimitusehdot from './inc/Toimitusehdot';
 import Tilaa from './inc/Tilaa';
-import Holder from './Holder';
 import SearchBar from './inc/SearchBar';
 import Tuote from './inc/Tuote';
 

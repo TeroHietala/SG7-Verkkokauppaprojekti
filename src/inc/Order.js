@@ -10,6 +10,18 @@ import { Link } from "react-router-dom";
 export default function Order({ url, cart, removeFromCart, updateAmount, empty}) {
     const [inputs, setInputs] = useState([]);
     const [inputIndex, setInputIndex] = useState(-1);
+    const [total,setTotal] = useState(0);
+
+
+/*     function Summa(){
+        const summa = cart.map(sum => sum.price).reduce((a,b) => a+b);
+            console.log(summa); 
+             <p classNameName="summa">Ostoskori yhteensä: {summa.first_name}
+
+            </p>
+                
+    } */
+
     
 
     useEffect(() => {
@@ -17,11 +29,16 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty})
             inputs[i] = createRef();
         }
     }, [inputs])
-
+console.log(cart);
     useEffect(() => {
     if (inputs.length > 0 && inputIndex > -1 && inputs[inputIndex.current] !== null) {
         inputs[inputIndex].current.focus();
         }
+        let sum = 0;
+        for (let i = 0; i < cart.length; i++) {
+            sum = sum + cart[i].amount;
+        }
+        setTotal(sum);
     }, [cart])
 
     function changeAmount(e,product,index) {
@@ -49,9 +66,16 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty})
 
                     <img src={url + 'images/' + product.image} alt={product.name} className="pikkukuva" />
                     </td> 
+                    <td>
+                        {product.price * product.amount} €
+                    </td>
+
                     <td style={{ padding: 15 }}><a href="#" onClick={() => removeFromCart(product)}>Delete</a></td>
+
                 </tr>
+                
             ))}
+
             <tr key={uuid.v4()}>
 
                 <Link className="nav-link" to={{
@@ -62,6 +86,7 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty})
             </tr>
         </tr>
         </tr>
+        <p>{total} </p> 
     </div>
     );
 }
