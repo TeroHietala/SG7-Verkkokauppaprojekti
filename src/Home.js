@@ -5,6 +5,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Card } from 'react-bootstrap';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -28,28 +29,30 @@ export default function Home() {
     <div class="container">
       <div class="row">
         <h3>Valikoima</h3>
-        <div class="col" id="valikoima">
-          {products.map(product => (
-            <div key={product.id}>
-              <img src={'http://localhost/verkkokauppa/images/' + product.image} alt={product.name} className="pikkukuva" />
-
-              <Link className="valikko"
+        {products.map(product => (
+          <div class='col-md-4 col-sm-10' style={{ padding: '10px' }} key={product.id}>
+            <Card style={{ width: '18rem', height: '30rem', backgroundColor: '#101115' }}>
+              <Card.Img id="pikkukuva" src={'http://localhost/verkkokauppa/images/' + product.image} alt={product.name} />
+              <Card.Body style={{ color: 'black' }}>
+                <Card.Title style={{ color: 'white', textAlign: "center" }} ></Card.Title>
+                <Card.Text style={{ color: 'white', textAlign: "center" }}>
+                </Card.Text>
+              </Card.Body>
+              <Link
                 to={{
                   pathname: '/inc/Products',
-
                   state: {
                     id: product.id,
                     name: product.name
                   }
-
                 }}
-              >{product.name}
+              >
+                <p align="center">{product.name}</p>
               </Link>
-            </div>
-          ))}
-        </div>
+            </Card>
+          </div>
+        ))}
       </div>
-
 
       <div className="karuselli">
         <h3>Tarjouksia</h3>
