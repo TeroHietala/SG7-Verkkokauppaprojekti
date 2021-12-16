@@ -7,90 +7,81 @@ import Discount from "./Discount";
 import { Link } from "react-router-dom";
 
 
-export default function Order({ url, cart, removeFromCart, updateAmount, empty}) {
+export default function Order({ url, cart, removeFromCart, updateAmount, empty }) {
     const [inputs, setInputs] = useState([]);
     const [inputIndex, setInputIndex] = useState(-1);
-    const [total,setTotal] = useState(0);
-
-
-/*     function Summa(){
-        const summa = cart.map(sum => sum.price).reduce((a,b) => a+b);
-            console.log(summa); 
-             <p classNameName="summa">Ostoskori yhteensä: {summa.first_name}
-
-            </p>
-                
-    } */
-
-    
 
     useEffect(() => {
         for (let i = 0; i < cart.length; i++) {
             inputs[i] = createRef();
         }
     }, [inputs])
-console.log(cart);
+
     useEffect(() => {
-    if (inputs.length > 0 && inputIndex > -1 && inputs[inputIndex.current] !== null) {
-        inputs[inputIndex].current.focus();
+        if (inputs.length > 0 && inputIndex > -1 && inputs[inputIndex.current] !== null) {
+            inputs[inputIndex].current.focus();
         }
-        let sum = 0;
-        for (let i = 0; i < cart.length; i++) {
-            sum = sum + cart[i].amount;
-        }
-        setTotal(sum);
     }, [cart])
 
-    function changeAmount(e,product,index) {
-        updateAmount(e.target.value,product)
+    function changeAmount(e, product, index) {
+        updateAmount(e.target.value, product)
         setInputIndex(index);
     }
 
-
+    let sum = 0;
     return (
-    <div className="container2">
-        <tr>
-            <h3>Ostoskori</h3>
-            <hr></hr>
-        <tr>
-            
-            {cart.map((product,index) => (
-                <tr key={uuid.v4()}>
-                    <td style={{width: '300px', padding: 15}}>{product.name}</td>
-                    <td style={{padding: 15, width: '300px'}}>{product.price} €</td>
-                    
-                <td><input
-                ref={inputs[index]}
-                style={{width: '60px', margin: 40}}
-                type="number" step="1" min="1" max="100"
-                onChange={e => changeAmount(e,product,index)}
-                        value={product.amount} />
+        <div className="container">
+            <tr>
+                <h3>Ostoskori</h3>
+                <tr>
+                    {cart.map((product, index) => (
 
-                    <img src={url + 'images/' + product.image} alt={product.name} className="pikkukuva2" />
-                    </td> 
-                    <td style={{width: '150px',  padding: 15}}>
-                        {product.price * product.amount} €
-                    </td>
+                        <tr key={uuid.v4()}>
+                            <td>{product.name}</td>
+                            <td style={{ padding: 15 }}>{product.price} €</td>
 
-                    <td style={{ padding: 15 }}><a href="#" onClick={() => removeFromCart(product)}>Delete</a></td>
-                    <hr></hr>
-                    Loppusumma: {product.price * product.amount} €
+                            <td><input
+                                ref={inputs[index]}
+                                style={{ width: '60px' }}
+                                type="number" step="1" min="1" max="100"
+                                onChange={e => changeAmount(e, product, index)}
+                                value={product.amount}
+                            />
+
+                                <img src={url + 'images/' + product.image} alt={product.name} className="pikkukuva" />
+                            </td>
+                            <td>
+                                {product.price * product.amount} €
+                            </td>
+
+                            <td style={{ padding: 15 }}><a href="#" onClick={() => removeFromCart(product)}>Delete</a></td>
+
+                        </tr>
+
+                    ))}
+                    {cart.map(product => {
+                        sum += parseFloat(product.price * product.amount);
+                        return (
+                            <tr key={uuid.v4()}>
+                                <td>{product.name}</td>
+                                <td>{product.price * product.amount}</td>
+                                <td></td>
+                            </tr>
+                        )
+                    })}
+                    <tr key={uuid.v4()}>
+                        <td></td>
+                        <td>{sum.toFixed(2)} €</td>
+                    </tr>
+                    <tr key={uuid.v4()}>
+                        <Link className="nav-link" to={{
+                            pathname: "/inc/Tilaa",
+                        }}> Tilaa
+                        </Link>
+                        <td className="sumrow"><a href="/inc/order" onClick={() => empty(null)}>Tyhjennä</a></td>
+                    </tr>
                 </tr>
-
-            ))}
- <hr></hr>
-            <tr key={uuid.v4()}>
-
-                <Link className="nav-link" to={{
-                    pathname: "/inc/Tilaa",
-                    }}> Tilaa
-                </Link>
-                <td className="sumrow"><a href="/inc/order" onClick={() => empty(null)}>Tyhjennä</a></td>
             </tr>
-        </tr>
-        </tr>
-        <hr></hr>
-        <p>{total} </p> 
-    </div>
+        </div>
     );
 }
