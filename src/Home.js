@@ -9,30 +9,39 @@ export default function Home() {
 
     return (
         <div className="container">
-                    <div className="karuselli">
+          <div className="karuselli">
 
           <h4>Kaunis etusivu</h4>
           <Carousel fade>
             <Carousel.Item interval={2500}>
             <img
                 className="karuselli1"
-                src="http://localhost/verkkokauppa/images/tarjousrumpu.jpg"
+                src="http://localhost/verkkokauppa/images/tarjouskitara.jpg"
                 alt="Image Two"
               />
               <Carousel.Caption>
-                <h3>AVAJAISETU!</h3>
-                <p></p>
+              <div className="text-block">
+                <h3>700€</h3>
+                <p><del>1200€</del></p>
+                <p><Link to="inc/Discount">Katso kaikki tarjoukset</Link></p>
+                </div>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item interval={2500}>
+            <div className="text-block1">
               <img
                 className="karuselli1"
                 src="http://localhost/verkkokauppa/images/tarjouskitara.jpg"
                 alt="Image Two"
               />
+              </div>
               <Carousel.Caption>
-              <h3>Tarjous</h3>
+                <div className="text-block">
+                <h3>700€</h3>
+                <p><del>1200€</del></p>
                 <p><Link to="inc/Discount">Katso kaikki tarjoukset</Link></p>
+                </div>
+                
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>

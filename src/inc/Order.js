@@ -48,34 +48,36 @@ console.log(cart);
 
 
     return (
-    <div className="container">
+    <div className="container2">
         <tr>
             <h3>Ostoskori</h3>
+            <hr></hr>
         <tr>
+            
             {cart.map((product,index) => (
                 <tr key={uuid.v4()}>
-                    <td>{product.name}</td>
-                    <td style={{padding: 15}}>{product.price} €</td>
+                    <td style={{width: '300px', padding: 15}}>{product.name}</td>
+                    <td style={{padding: 15, width: '300px'}}>{product.price} €</td>
                     
                 <td><input
                 ref={inputs[index]}
-                style={{width: '60px'}}
+                style={{width: '60px', margin: 40}}
                 type="number" step="1" min="1" max="100"
                 onChange={e => changeAmount(e,product,index)}
                         value={product.amount} />
 
-                    <img src={url + 'images/' + product.image} alt={product.name} className="pikkukuva" />
+                    <img src={url + 'images/' + product.image} alt={product.name} className="pikkukuva2" />
                     </td> 
-                    <td>
+                    <td style={{width: '150px',  padding: 15}}>
                         {product.price * product.amount} €
                     </td>
 
                     <td style={{ padding: 15 }}><a href="#" onClick={() => removeFromCart(product)}>Delete</a></td>
-
+                   
                 </tr>
-                
-            ))}
 
+            ))}
+ <hr></hr>
             <tr key={uuid.v4()}>
 
                 <Link className="nav-link" to={{
@@ -86,6 +88,7 @@ console.log(cart);
             </tr>
         </tr>
         </tr>
+        <hr></hr>
         <p>{total} </p> 
     </div>
     );
