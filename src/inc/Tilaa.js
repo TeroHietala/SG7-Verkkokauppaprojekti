@@ -48,7 +48,7 @@ export default function Tilaa({url, cart}) {
                         return (
                             <tr key={uuid.v4()}>
                                 <td>{product.name}</td>
-                                <td>{product.price}</td>
+                                <td>{product.price * product.amount}</td>
                                 <td></td>
                             </tr>
                         )
