@@ -44,7 +44,7 @@ export default function Tilaa({url, cart}) {
             <table>
                 <tbody>
                     {cart.map(product => {
-                        sum+=parseFloat(product.price);
+                        sum+=parseFloat(product.price * product.amount);
                         return (
                             <tr key={uuid.v4()}>
                                 <td>{product.name}</td>

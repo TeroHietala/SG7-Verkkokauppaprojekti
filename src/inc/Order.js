@@ -73,7 +73,8 @@ console.log(cart);
                     </td>
 
                     <td style={{ padding: 15 }}><a href="#" onClick={() => removeFromCart(product)}>Delete</a></td>
-                   
+                    <hr></hr>
+                    Loppusumma: {product.price * product.amount} €
                 </tr>
 
             ))}
