@@ -117,6 +117,12 @@ footer a:hover {
   position: relative;
   overflow: hidden;
 }
+
+#pikkukuva {
+  object-fit: scale-down;
+  position: relative;
+  overflow: hidden;
+}
 /* Ostoskorin kuvat */
 .pikkukuva2 {
   height: 100px;
@@ -275,4 +281,10 @@ footer a:hover {
   .karuselli1 {
     max-height: 200px;
   }
+}
+
+#btn {
+  background-color: #dd6b00;
+  color: white;
+  font-size: 18px;
 }
