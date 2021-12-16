@@ -16,6 +16,7 @@ export default function Register() {
     //Tallentaa asiakkaan tiedot tietokantaan
     function save(e) {
         e.preventDefault();
+        //Tallentaessa tiedot tietokantaan, tyhjätään samalla inputit.
         setFname('')
         setLname('')
         setMail('')
@@ -55,21 +56,21 @@ export default function Register() {
             <h3>Rekisteröidy</h3>
             <form onSubmit={save}>
                 <label>Etunimi</label><br />
-                <input placeholder="Erkki" value={fname} onChange={e => setFname(e.target.value)} /><br />
+                <input type="text" placeholder="Erkki" value={fname} onChange={e => setFname(e.target.value)} /><br />
                 <label>Sukunimi</label><br />
-                <input placeholder="Esimerkki" value={lname} onChange={e => setLname(e.target.value)} /><br />
+                <input type="text" placeholder="Esimerkki" value={lname} onChange={e => setLname(e.target.value)} /><br />
                 <label>Sähköposti</label><br />
-                <input placeholder="erkki.esimerkki@sähköposti.fi" value={mail} onChange={e => setMail(e.target.value)} /><br />
+                <input type="email" placeholder="erkki.esimerkki@sähköposti.fi" value={mail} onChange={e => setMail(e.target.value)} /><br />
                 <label>Salasana</label><br />
-                <input placeholder="Salasana" value={passwd} onChange={e => setPasswd(e.target.value)} /><br />
+                <input type="password" placeholder="Salasana" value={passwd} onChange={e => setPasswd(e.target.value)} /><br />
                 <label>Osoite</label><br />
-                <input placeholder="Kadunnimi" value={addr} onChange={e => setAddr(e.target.value)} /><br />
+                <input type="text" placeholder="Kadunnimi" value={addr} onChange={e => setAddr(e.target.value)} /><br />
                 <label>Postinumero</label><br />
-                <input placeholder="10100" value={zip} onChange={e => setZip(e.target.value)} /><br />
+                <input type="number" placeholder="10100" value={zip} onChange={e => setZip(e.target.value)} /><br />
                 <label>Postitoimipaikka</label><br />
-                <input placeholder="Helsinki" value={city} onChange={e => setCity(e.target.value)} /><br />
+                <input type="text" placeholder="Helsinki" value={city} onChange={e => setCity(e.target.value)} /><br />
                 <label>Puhelin numero</label><br />
-                <input placeholder="0501231234" value={phone} onChange={e => setPhone(e.target.value)} /><br />
+                <input type="tel" placeholder="0501231234" value={phone} onChange={e => setPhone(e.target.value)} /><br />
                 <button>Rekisteröidy</button>
             </form>
         </div>
