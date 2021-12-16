@@ -109,9 +109,27 @@ footer a:hover {
   width: 100%;
 }
 
+#pikkukuva {
+  
+  object-fit: scale-down;
+  position: relative;
+  overflow: hidden;
+}
+
+.isokuva {
+  height: 800px;
+  width: 800px;
+  object-fit: scale-down;
+  position: relative;
+  overflow: hidden;
+}
+
 .pikkukuva {
-  height: 25%;
-  width: 25%;
+  height: 500px;
+  width: 500px;
+  object-fit: scale-down;
+  position: relative;
+  overflow: hidden;
 }
 
 .pikkukuva2 {
@@ -180,3 +198,12 @@ color: #f0ccab;
     padding-left: 90px;
     padding-right: 20px;
   }
+
+#btn {
+  background-color: #dd6b00;
+  color: black;
+  font-size: 18px;
+}
+
+
+

@@ -36,12 +36,12 @@ export default function Products({ url, category, addToCart }) {
                     {products.map(product => (
 
                         
-                            <div class='col-4' key={product.id} >
-                                <Card  style={{ width: '18rem', backgroundColor:'#404040  ' }}>
-                                    <Card.Img   variant="top" className="pikkukuva" src={url + 'images/' + product.image} alt={product.name} />
+                            <div class='col-md-5 col-sm-10 ' style={{ padding: '10px'  }} key={product.id} >
+                                <Card style={{  width: '18rem', height: '30rem', backgroundColor:'#101115' }}>
+                                    <Card.Img id="pikkukuva" variant="top"  src={url + 'images/' + product.image} alt={product.name} />
                                         <Card.Body style={{ color: 'black' }}>
                                             <Card.Title style={{ color: 'white', textAlign: "center" }} >{product.name}</Card.Title>
-                                            <Card.Text style={{ color: 'white'  }}>
+                                            <Card.Text style={{ color: 'white', textAlign: "center"  }}>
                                                 Tässä erinomainen tuote!
                                             </Card.Text>
                                             <p style={{ color: 'white', textAlign: "center" }}>{product.price} €</p>
@@ -58,9 +58,9 @@ export default function Products({ url, category, addToCart }) {
                                             }
                                         }}
                                         >
-                                            <button className="btn btn-primary" type="button">Avaa tuote tästä!</button>
+                                            <p align="center">Katso tuote tiedot</p>   
                                         </Link>
-                                    <button className="btn btn-primary" type="button" onClick={e => addToCart(product)}>Lisää ostoskoriin</button>
+                                    <button id="btn" className="btn" type="button" onClick={e => addToCart(product)}>Lisää ostoskoriin</button>
                                 </Card>
                             </div>
                     ))}

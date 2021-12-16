@@ -56,7 +56,7 @@ export default function SearchBar({ url, addToCart }) {
                         }}
                     >
                         <p>{item.name}</p>
-                        <img src={url + 'images/' + item.image} alt={item.name} className="pikkukuva" />
+                        <img src={url + 'images/' + item.image} alt={item.name} id="isokuva" />
                     </Link>
                     <p>{item.price}</p>
                         
