@@ -10,35 +10,17 @@ import { Link } from "react-router-dom";
 export default function Order({ url, cart, removeFromCart, updateAmount, empty}) {
     const [inputs, setInputs] = useState([]);
     const [inputIndex, setInputIndex] = useState(-1);
-    const [total,setTotal] = useState(0);
-
-
-/*     function Summa(){
-        const summa = cart.map(sum => sum.price).reduce((a,b) => a+b);
-            console.log(summa); 
-             <p classNameName="summa">Ostoskori yhteensä: {summa.first_name}
-
-            </p>
-                
-    } */
-
-    
 
     useEffect(() => {
         for (let i = 0; i < cart.length; i++) {
             inputs[i] = createRef();
         }
     }, [inputs])
-console.log(cart);
+    
     useEffect(() => {
     if (inputs.length > 0 && inputIndex > -1 && inputs[inputIndex.current] !== null) {
         inputs[inputIndex].current.focus();
         }
-        let sum = 0;
-        for (let i = 0; i < cart.length; i++) {
-            sum = sum + cart[i].amount;
-        }
-        setTotal(sum);
     }, [cart])
 
     function changeAmount(e,product,index) {
@@ -46,13 +28,14 @@ console.log(cart);
         setInputIndex(index);
     }
 
-
+    let sum = 0;
     return (
     <div className="container">
         <tr>
             <h3>Ostoskori</h3>
         <tr>
             {cart.map((product,index) => (
+                
                 <tr key={uuid.v4()}>
                     <td>{product.name}</td>
                     <td style={{padding: 15}}>{product.price} €</td>
@@ -62,7 +45,8 @@ console.log(cart);
                 style={{width: '60px'}}
                 type="number" step="1" min="1" max="100"
                 onChange={e => changeAmount(e,product,index)}
-                        value={product.amount} />
+                        value={product.amount}
+                         />
 
                     <img src={url + 'images/' + product.image} alt={product.name} className="pikkukuva" />
                     </td> 
@@ -75,9 +59,21 @@ console.log(cart);
                 </tr>
                 
             ))}
-
+                 {cart.map(product => {
+                        sum+=parseFloat(product.price * product.amount);
+                        return (
+                            <tr key={uuid.v4()}>
+                                <td>{product.name}</td>
+                                <td>{product.price * product.amount}</td>
+                                <td></td>
+                            </tr>
+                        )
+                    })}
+                             <tr key={uuid.v4()}>
+                    <td></td>
+                    <td>{sum.toFixed(2)} €</td>
+                </tr>
             <tr key={uuid.v4()}>
-
                 <Link className="nav-link" to={{
                     pathname: "/inc/Tilaa",
                     }}> Tilaa
@@ -86,7 +82,6 @@ console.log(cart);
             </tr>
         </tr>
         </tr>
-        <p>{total} </p> 
     </div>
     );
 }
