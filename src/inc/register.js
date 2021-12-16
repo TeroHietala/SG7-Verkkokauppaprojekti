@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 
-//Asiakkaan rekisteröintisivu
 export default function Register() {
     const [customer, setCustomer] = useState([]);
     const [fname, setFname] = useState('');
@@ -17,6 +16,15 @@ export default function Register() {
     //Tallentaa asiakkaan tiedot tietokantaan
     function save(e) {
         e.preventDefault();
+        setFname('')
+        setLname('')
+        setMail('')
+        setPasswd('')
+        setAddr('')
+        setZip('')
+        setCity('')
+        setPhone('')
+        e.preventDefault();
         const json = JSON.stringify({ fname: fname, lname: lname, mail: mail, passwd: passwd, addr: addr, zip: zip, city: city, phone: phone })
         axios.post('http://localhost/verkkokauppa/customers/register.php', json, {
             headers: {
@@ -29,18 +37,18 @@ export default function Register() {
                 alert(error.response.data.error)
             });
     }
-    //Tyhjentää inputit ja muuttujat
-    function clear(e) {
-        e.preventDefault();
-        setFname('')
-        setLname('')
-        setMail('')
-        setPasswd('')
-        setAddr('')
-        setZip('')
-        setCity('')
-        setPhone('')
-    }
+        //Tyhjentää inputit ja muuttujat
+/*         function clear(e) {
+            e.preventDefault();
+            setFname('')
+            setLname('')
+            setMail('')
+            setPasswd('')
+            setAddr('')
+            setZip('')
+            setCity('')
+            setPhone('')
+        } */
 
     return (
         <div className="container">
@@ -62,7 +70,7 @@ export default function Register() {
                 <input placeholder="Helsinki" value={city} onChange={e => setCity(e.target.value)} /><br />
                 <label>Puhelin numero</label><br />
                 <input placeholder="0501231234" value={phone} onChange={e => setPhone(e.target.value)} /><br />
-                <button onClick={clear}>Rekisteröidy</button>
+                <button>Rekisteröidy</button>
             </form>
         </div>
     );
