@@ -2,26 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
 
 /* Omat */
-*{
-  margin:0;
+* {
+  margin: 0;
   padding: 0;
-
 }
 
 body {
   background-color: #101115;
   margin-bottom: 20%;
-  color:rgb(253, 187, 167);
+  color: rgb(253, 187, 167);
 }
 .container {
-/*   font-family: 'Jacques Francois', serif; */
-font-family: 'New Tegomin', serif;
+  /*   font-family: 'Jacques Francois', serif; */
+  font-family: 'New Tegomin', serif;
   margin-top: 50px;
-  color:rgb(236, 236, 236);
+  color: rgb(236, 236, 236);
 }
 
 footer {
-  position:relative;
+  position: relative;
   bottom: 0;
   width: 100%;
   border: 0px;
@@ -58,7 +57,7 @@ footer a:hover {
 
 } */
 #header {
-  height: 400px;
+  height: 100px;
 }
 
 .navbar {
@@ -68,46 +67,49 @@ footer a:hover {
   background-size: cover;
 }
 
-
-.appi{
+.appi {
   background-color: #101115;
   font-size: 20px;
-
 }
 .navbar {
-  background-image: url(./banner.png);
+  background-image: url(./banner3.jpg);
   background-repeat: no-repeat;
   background-color: #101115;
   background-size: cover;
+  height: 100px;
 }
 .navbar-toggle-icon .span {
-  color:#dd6b00;
+  color: #dd6b00;
 }
 /* .{
   color:#dd6b00 !important;
 }
  */
 
-.navbar .nav-link{
+.navbar .nav-link {
   font-family: 'Jacques Francois', serif;
   color: #f0ccab;
 }
-.navbar .nav-text{
+.navbar .nav-text {
   font-family: 'Jacques Francois', serif;
   color: #f0ccab;
 }
 #otsikko {
-
   font-family: 'Pattaya', sans-serif;
   font-size: 22px;
-  font-weight:1000;
+  font-weight: 1000;
   color: #dd6b00;
   letter-spacing: 7px;
 }
+/* Karuselli kuvat */
 .karuselli1 {
-  display: block;
+  max-height: 700px;
+  height: 100%;
   width: 100%;
+  object-fit: cover;
+  position: relative;
 }
+<<<<<<< HEAD
 
 #pikkukuva {
   
@@ -124,6 +126,9 @@ footer a:hover {
   overflow: hidden;
 }
 
+=======
+/* tuotteiden selaus kuvat */
+>>>>>>> 136a0f7acd415d6783ec564214ec46c23e4b3ac3
 .pikkukuva {
   height: 500px;
   width: 500px;
@@ -131,10 +136,21 @@ footer a:hover {
   position: relative;
   overflow: hidden;
 }
-
+/* Ostoskorin kuvat */
 .pikkukuva2 {
-  height: 5%;
-  width: 5%;
+  height: 100px;
+  width: 100px;
+  object-fit: scale-down;
+  position: relative;
+  overflow: hidden;
+}
+/* Tuote esittelu kuvat */
+.isokuva {
+  height: 800px;
+  width: 800px;
+  object-fit: scale-down;
+  position: relative;
+  overflow: hidden;
 }
 :link {
   text-decoration: none;
@@ -146,7 +162,7 @@ footer a:hover {
   background-color: #101115;
   padding: 15px;
 }
-#login input{
+#login input {
   margin-bottom: 5px;
 }
 /* Tuotteet dropdown */
@@ -155,49 +171,111 @@ footer a:hover {
   color: #f0ccab;
   background-color: #101115;
 }
-#tuotteet .dropdown-item{
-font-family: 'Jacques Francois', serif;
-color: #f0ccab;
+#tuotteet .dropdown-item {
+  font-family: 'Jacques Francois', serif;
+  color: #f0ccab;
 }
+
 #chatbot {
   font-family: 'Jacques Francois', serif;
   color: #f0ccab;
   background-color: #101115;
 }
-#chatbot .sc-iwsKbI {
-  width: 300px;
-  height: 520px;
-}
-#chatbot .sc-EHOje{
-  text-align: center;
-}
-#chatbot .sc-cSHVUG {
-  display: none;
-}
-#chatbot .sc-gZMcBi {
-  width: 280px;
-  font-size: 10px;
-}
-
 .container2 {
   /*   font-family: 'Jacques Francois', serif; */
   font-family: 'New Tegomin', serif;
-    margin-top: 50px;
-    color:rgb(236, 236, 236);
-  }
-  .container2 td tr {
+  margin-top: 50px;
+  color: rgb(236, 236, 236);
+}
+.container2 td tr {
   padding: 10%;
 }
+/* Karusellin tyylit */
 .text-block {
-    transform: skew(50deg, -45deg) translateY(-430px);
-    width: 100%;
-    bottom: 20px;
-    right: 20px;
-    background-color: black;
-    color: #dd6b00;
-    padding-left: 90px;
-    padding-right: 20px;
+  transform: skew(56deg, -50deg) translateY(-300px);
+  width: auto;
+  margin-top: 140px;
+  margin-left: 20px;
+  background-color: black;
+  color: #dd6b00;
+  padding-left: 1px;
+  padding-right: 1px;
+  padding-top: 5px;
+  padding-bottom: 1px;
+  font-size: 13px;
+  border: solid 4px #dd6b00;
+  border-color: #dd6b00;
+}
+/* Etusivun valikoima */
+#valikoima {
+  display: inline-flex;
+}
+.valikko {
+  font-family: 'New Tegomin', serif;
+  color: #dd6b00;
+  font-size: 30px;
+}
+/* Responsiivisuus hienosäätöä */
+@media (max-width: 1400px) {
+  .text-block {
+    transform: skew(56deg, -50deg) translateY(-230px);
   }
+}
+@media (max-width: 1200px) {
+  .text-block {
+    transform: skew(56deg, -50deg) translateY(-100px);
+    width: auto;
+    margin-top: 100px;
+    margin-left: 2px;
+    padding-left: 80px;
+    padding-right: 1px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-size: 10px;
+    border: solid 3px #dd6b00;
+  }
+}
+@media (max-width: 1200px) {
+  .text-block {
+    transform: skew(55deg, -48deg) translateY(-180px);
+    width: auto;
+    margin-top: 50px;
+    margin-left: 20px;
+    padding-left: 20px;
+    font-size: 8px;
+    border: solid 3px #dd6b00;
+  }
+  .karuselli1 {
+    max-height: 500px;
+  }
+}
+@media (max-width: 992px) {
+  .text-block {
+    transform: skew(45deg, -48deg) translateY(-180px);
+    width: auto;
+    margin-top: 50px;
+    margin-left: 20px;
+    padding-left: 20px;
+    font-size: 8px;
+    border: solid 3px #dd6b00;
+  }
+  .karuselli1 {
+    max-height: 450px;
+  }
+}
+@media (max-width: 768px) {
+  .text-block {
+    transform: skew(35deg, -45deg) translateY(-230px) translateX(-160px);
+    width: 600px;
+    margin-left: 60px;
+    padding-left: 20px;
+    font-size: 8px;
+    border: solid 2px #dd6b00;
+  }
+  .karuselli1 {
+    max-height: 330px;
+  }
+<<<<<<< HEAD
 
 #btn {
   background-color: #dd6b00;
@@ -207,3 +285,25 @@ color: #f0ccab;
 
 
 
+=======
+}
+@media (max-width: 576px) {
+  .text-block {
+    transform: skew(35deg, -45deg) translateY(-220px) translateX(-180px);
+    width: 600px;
+    margin-left: 60px;
+    padding-left: 5px;
+    font-size: 8px;
+    border: solid 1px #dd6b00;
+  }
+  .text-block h3 {
+    font-size: 13px;
+  }
+  .text-block p {
+    margin-bottom: 1px;
+  }
+  .karuselli1 {
+    max-height: 200px;
+  }
+}
+>>>>>>> 136a0f7acd415d6783ec564214ec46c23e4b3ac3
