@@ -109,29 +109,16 @@ footer a:hover {
   object-fit: cover;
   position: relative;
 }
-<<<<<<< HEAD
-
-#pikkukuva {
-  
-  object-fit: scale-down;
-  position: relative;
-  overflow: hidden;
-}
-
-.isokuva {
-  height: 800px;
-  width: 800px;
-  object-fit: scale-down;
-  position: relative;
-  overflow: hidden;
-}
-
-=======
 /* tuotteiden selaus kuvat */
->>>>>>> 136a0f7acd415d6783ec564214ec46c23e4b3ac3
 .pikkukuva {
   height: 500px;
   width: 500px;
+  object-fit: scale-down;
+  position: relative;
+  overflow: hidden;
+}
+
+#pikkukuva {
   object-fit: scale-down;
   position: relative;
   overflow: hidden;
@@ -275,17 +262,6 @@ footer a:hover {
   .karuselli1 {
     max-height: 330px;
   }
-<<<<<<< HEAD
-
-#btn {
-  background-color: #dd6b00;
-  color: black;
-  font-size: 18px;
-}
-
-
-
-=======
 }
 @media (max-width: 576px) {
   .text-block {
@@ -306,4 +282,9 @@ footer a:hover {
     max-height: 200px;
   }
 }
->>>>>>> 136a0f7acd415d6783ec564214ec46c23e4b3ac3
+
+#btn {
+  background-color: #dd6b00;
+  color: white;
+  font-size: 18px;
+}
