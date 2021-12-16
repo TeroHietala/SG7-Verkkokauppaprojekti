@@ -11,8 +11,9 @@ const theme = {
   botFontColor: '#101115',
   userBubbleColor: '#f0ccab',
   userFontColor: '#4a4a4a',
-}
+  hideInput: true
 
+}
 //Chatbot keskustelut
 const steps = [
   {
@@ -154,7 +155,7 @@ const steps = [
 export default function chatbot() {
   return (
     <ThemeProvider theme={theme}>
-      <Chatbot id="chatbot" steps={steps} />
+      <Chatbot id="chatbot" steps={steps} hideInput={true} />
     </ThemeProvider>
   );
 }
