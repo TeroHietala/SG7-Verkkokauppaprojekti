@@ -288,3 +288,15 @@ footer a:hover {
   color: white;
   font-size: 18px;
 }
+
+#haku {
+  width: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 0 3em 0px rgba(204, 146, 59, 0.4);
+  transform: scale(1.02);
+}
+.card:active {
+  transform: scale(1.05) translateY(0.2rem);
+}
