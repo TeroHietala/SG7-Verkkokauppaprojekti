@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 
 export default function SearchBar({ url, addToCart }) {
 
@@ -30,40 +31,57 @@ export default function SearchBar({ url, addToCart }) {
 
     return (
         <div className="container">
-            <h1>Kaikki Tuotteet</h1>
-            <input type="text" placeholder="Etsi tuotteita"
-                onChange={e => { setSearchTerm(e.target.value); }} />
+            <div class="row">
+                <h1 style={{ paddingBottom: '25px'  }}>Kaikki Tuotteet</h1>
+                <div style={{ paddingBottom: '25px'  }} class="col-12">
+                    <input   type="text" placeholder="Etsi tuotteita"
+                        onChange={e => { setSearchTerm(e.target.value); }} />
+                </div>
+                {allData.filter((item) => {
+                    if (searchTerm == '') {
+                        return item
+                    } else if (item.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return item
+                    }
+                    
+                    }).map((item, id) => {
+                        
+                        return (   
+                                      
+                                <div  class='col-lg-4 col-md-6 col-sm-10' style={{ padding: '10px'  }} key={id} onClick={e => setSearchItem(item)}>
 
-            {allData.filter((item) => {
-                if (searchTerm == '') {
-                    return item
-                } else if (item.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                    return item
-                }
-            }).map((item, id) => {
-                return (           
-                    <div key={id} onClick={e => setSearchItem(item)}>
-                        
-                        <Link className="container"
-                        to={{
-                            pathname: '/inc/Tuote',
-                            state: {
-                                id: item.id,
-                                name: item.name,
-                                price: item.price,
-                                image: item.image
-                            }
-                        }}
-                    >
-                        <p>{item.name}</p>
-                        <img src={url + 'images/' + item.image} alt={item.name} id="isokuva" />
-                    </Link>
-                    <p>{item.price}</p>
-                        
-                        <button className="btn btn-primary" type="button" onClick={e => addToCart(item)}>Lisää ostoskoriin</button>
-                    </div>               
-                );
-            })}
+                                        <Card style={{  width: '18rem', height: '30rem', backgroundColor:'#101115' }}>
+                                            <Card.Img id="pikkukuva" variant="top"  src={url + 'images/' + item.image} alt={item.name} />
+                                                <Card.Body style={{ color: 'black' }}>
+                                                <Card.Title style={{ color: 'white', textAlign: "center" }} >{item.name}</Card.Title>
+                                                <Card.Text style={{ color: 'white', textAlign: "center"  }}>
+                                                    Ota tuote haltuun!
+                                                </Card.Text>
+                                                <p style={{ color: 'white', textAlign: "center" }}>{item.price} €</p>
+                                                </Card.Body>
+                                                
+                                                <Link className="container"
+                                                    to={{
+                                                        pathname: '/inc/Tuote',
+                                                        state: {
+                                                            id: item.id,
+                                                            name: item.name,
+                                                            price: item.price,
+                                                            image: item.image
+                                                        }
+                                                    }}
+                                                    >
+                                                        <p align="center">Katso tuote tästä!</p>
+                                                    </Link>
+                                            
+                                                
+                                                <button id="btn" className="btn" type="button" onClick={e => addToCart(item)}>Lisää ostoskoriin</button>
+                                        </Card>
+                                </div>                
+                                
+                        );
+                    })}
+            </div>
         </div>
     )
 }
