@@ -67,7 +67,7 @@ export default function ContactUs () {
             onChange={e => setFback(e.target.value)}
           />
         </Form.Group>
-        <Button variant='primary' type='submit'>
+        <Button id="btn" type='submit'>
           Lähetä
         </Button>
       </Form>

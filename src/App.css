@@ -3,12 +3,12 @@
 
 /* Omat */
 * {
+
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: #101115;
   margin-bottom: 20%;
   color: rgb(253, 187, 167);
 }
@@ -84,7 +84,7 @@ footer a:hover {
   }
 
 #header {
-  height: 100px;
+  height: 150px;
 }
 
 .appi {
@@ -93,17 +93,12 @@ footer a:hover {
 }
 .navbar {
   background-image: url(./binneri3.jpg);
-  background-color: #101115;
   min-height: 80px;
 }
 
 .navbar-toggle-icon .span {
   color: #dd6b00;
 }
-/* .{
-  color:#dd6b00 !important;
-}
- */
 
 .navbar .nav-link {
   font-family: 'Jacques Francois', serif;
@@ -153,8 +148,8 @@ footer a:hover {
 }
 /* Tuote esittelu kuvat */
 .isokuva {
-  height: 800px;
-  width: 800px;
+  max-height: 800px;
+  max-width: 800px;
   object-fit: scale-down;
   position: relative;
   overflow: hidden;
@@ -183,6 +178,7 @@ footer a:hover {
   color: #f0ccab;
 }
 
+
 #chatbot {
   font-family: 'Jacques Francois', serif;
   color: #f0ccab;
@@ -190,6 +186,7 @@ footer a:hover {
 }
 .container2 {
   /*   font-family: 'Jacques Francois', serif; */
+  background-color: #101115;
   font-family: 'New Tegomin', serif;
   margin-top: 50px;
   color: rgb(236, 236, 236);
@@ -355,7 +352,11 @@ footer a:hover {
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
-
+#ostoskorinrivi{
+  display: inline-block;
+  display: inline-flex;
+}
+  
 .container-fluid hr {
 border-top: 1px dashed rgb(221, 107, 0);
 }

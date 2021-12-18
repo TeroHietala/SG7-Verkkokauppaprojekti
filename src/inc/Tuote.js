@@ -7,7 +7,7 @@ export default function Tuote({url, product, addToCart}) {
     return (
         <div className="container">
             <p>{product.name}</p>
-            <img src={url + 'images/' + product.image} alt={product.name} className="isokuva" />
+            <img src={url + 'images/' + product.image} alt={product.name} className="isokuva img-fluid" />
             <p>{product.price} €</p>
             <p>{product.description}</p>
             <button className="btn btn-primary" type="button" onClick={e => addToCart(product)}>Lisää ostoskoriin</button>

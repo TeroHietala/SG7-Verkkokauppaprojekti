@@ -31,27 +31,25 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty }
     let sum = 0;
     return (
         <div className="container">
-            <tr className="row">
+            <div className="row" id="ostoskori-row">
+
                 <h3>Ostoskori</h3>
                 <hr></hr>
-                <tr className="container-fluid">
-                    <td className="col-4">Tuote:</td>
-                    <td className="col-4">Hinta:</td>
-                    <td className="col-3"></td>
-                    <td className="col-3">Määrä:</td>
-                    <td className="col-2"></td>
+                <div className="container-fluid">
+                    <tr>
+                    <td className="col-4 ">Tuote:</td>
+                    <td className="col-4 ">Hinta:</td>
+                    <td className="col-3 "></td>
+                    <td className="col-3 ">Määrä:</td>
+                    <td className="col-2 "></td>
+                    </tr>
 
-                    <td>
-                    
-
-                    </td>
                     <hr></hr>
                     {cart.map((product, index) => (
 
-                        <tr key={uuid.v4()}>
-                            <td style={{ padding: 15 }} className="col-2">{product.name}</td>
-                            <td style={{ padding: 15 }} className="col-2">{product.price} €</td>
-
+                        <tr key={uuid.v4()} className="col-6">
+                            <td style={{ padding: 15 }} className="col-2 col-xs-6">{product.name}</td>
+                            <td style={{ padding: 15 }} className="col-2 col-xs-6">{product.price} €</td>
                             <td className="col-2" style={{ padding: 15 }}><input
                                 ref={inputs[index]}
                                 style={{ width: '60px' }}
@@ -62,14 +60,18 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty }
 
                                 <img src={url + 'images/' + product.image} alt={product.name} className="col-4 pikkukuva2" style={{ padding: 5 }} />
                             </td>
-                            <td className="col-2" style={{ padding: 15 }}>
+                        
+
+                            <td className="col-2 col-xs-6" style={{ padding: 15 }}>
                             {product.amount} x {product.price}€  
                             </td>
-
-                            <td style={{ padding: 15 }} className="col-2"><a href="#" onClick={() => removeFromCart(product)}>Delete</a>
+                    
+                            <td style={{ padding: 15 }} className="col-2 col-xs-6"><a href="#" onClick={() => removeFromCart(product)}>Delete</a>
                             
                             </td>
-                            
+                    
+                    
+
                         </tr>
                         
 
@@ -107,8 +109,8 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty }
                         <td className="sumrow"><a href="/inc/order" onClick={() => empty(null)}>Tyhjennä</a></td>
                         
                     </tr>
-                </tr>
-                </tr>
+                </div>
+                </div>
                 
         </div>
     );
