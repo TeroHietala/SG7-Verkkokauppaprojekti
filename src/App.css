@@ -27,6 +27,7 @@ footer {
   text-align: center;
   background-color: #101115;
   font-size: 16px;
+  
 }
 .row .column {
   font-family: 'Jacques Francois', serif;
@@ -296,7 +297,9 @@ footer a:hover {
 .card:hover {
   box-shadow: 0 0 3em 0px rgba(204, 146, 59, 0.4);
   transform: scale(1.02);
+  background-color: #7c5a3a;
 }
 .card:active {
   transform: scale(1.05) translateY(0.2rem);
 }
+
