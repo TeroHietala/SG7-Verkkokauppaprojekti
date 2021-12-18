@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Toimitusehdot() {
     return (
-        <div>
+        <div className='container'>
             <strong>Toimitusaika:</strong>
                 <p>1-14 päivää, ellei toisin mainita.</p>
 

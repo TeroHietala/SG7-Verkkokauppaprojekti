@@ -96,14 +96,7 @@ export default function Home() {
         <h3>Valikoima</h3>
         {products.map(product => (
           <div class='col-md-4 col-sm-10' style={{ padding: '10px' }} key={product.id}>
-            <Card style={{ width: '18rem', height: '30rem', backgroundColor: '#101115' }}>
-              <Card.Img id="pikkukuva" src={'http://localhost/verkkokauppa/images/' + product.image} alt={product.name} />
-              <Card.Body style={{ color: 'black' }}>
-                <Card.Title style={{ color: 'white', textAlign: "center" }} ></Card.Title>
-                <Card.Text style={{ color: 'white', textAlign: "center" }}>
-                </Card.Text>
-              </Card.Body>
-              <Link
+            <Link
                 to={{
                   pathname: '/inc/Products',
                   state: {
@@ -112,9 +105,18 @@ export default function Home() {
                   }
                 }}
               >
+            <Card style={{ width: '18rem', height: '30rem', backgroundColor: '#101115' }}>
+              <Card.Img id="pikkukuva" src={'http://localhost/verkkokauppa/images/' + product.image} alt={product.name} />
+              <Card.Body style={{ color: 'black' }}>
+                <Card.Title style={{ color: 'white', textAlign: "center" }} ></Card.Title>
+                <Card.Text style={{ color: 'white', textAlign: "center" }}>
+                </Card.Text>
+              </Card.Body>
+              
                 <p align="center">{product.name}</p>
-              </Link>
+              
             </Card>
+            </Link>
           </div>
         ))}
       </div>

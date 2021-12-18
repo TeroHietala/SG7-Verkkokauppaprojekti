@@ -2,7 +2,7 @@ import React from "react";
     
 export default function Maksutavat() {
     return (
-        <div>
+        <div className="container">
             <h3>Maksutavat</h3>
             <p>Maksaminen verkkokauppassamme on turvallista, ostotapahtuman käsittelee -.</p>
                 <ul>
