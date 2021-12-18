@@ -94,7 +94,7 @@ export default function Navbar ({ url, cart, icon, steps }) {
   }, [url])
 
   return (
-    <nav class='navbar navbar-expand-lg fixed-top navbar-dark'>
+    <nav class='navbar navbar-expand-lg fixed-top bg-dark' >
       <div class='container-fluid'>
         <Link
           className='nav-link'
@@ -106,7 +106,7 @@ export default function Navbar ({ url, cart, icon, steps }) {
           INSTRUMENT HEAVEN
         </Link>
         <button
-          className='navbar-toggler '
+          className='navbar-toggler custom-toggler'
           type='button'
           data-bs-toggle='collapse'
           data-bs-target='#navbarSupportedContent'

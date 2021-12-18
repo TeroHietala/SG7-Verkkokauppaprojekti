@@ -284,7 +284,7 @@ footer a:hover {
 }
 
 #btn {
-  background-color: #dd6b00;
+  background-color: rgb(221, 107, 0);
   color: white;
   font-size: 18px;
 }
@@ -300,3 +300,18 @@ footer a:hover {
 .card:active {
   transform: scale(1.05) translateY(0.2rem);
 }
+.feedback {
+
+  cursor: default;
+  pointer-events: none;        
+  text-decoration: none;
+  color: rgb(136, 81, 30);
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: rgb(221, 107, 0);
+}
+.navbar-toggler-icon {
+  background-image: url(
+    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(221, 107, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }

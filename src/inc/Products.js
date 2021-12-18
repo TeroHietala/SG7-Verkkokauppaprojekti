@@ -42,7 +42,7 @@ export default function Products({ url, category, addToCart }) {
                                         <Card.Body style={{ color: 'black' }}>
                                             <Card.Title style={{ color: 'white', textAlign: "center" }} >{product.name}</Card.Title>
                                             <Card.Text style={{ color: 'white', textAlign: "center"  }}>
-                                                Tässä erinomainen tuote!
+                                                
                                             </Card.Text>
                                             <p style={{ color: 'white', textAlign: "center" }}>{product.price} €</p>
                                         </Card.Body>
@@ -54,7 +54,8 @@ export default function Products({ url, category, addToCart }) {
                                                 id: product.id,
                                                 name: product.name,
                                                 price: product.price,
-                                                image: product.image
+                                                image: product.image,
+                                                description:product.description
                                             }
                                         }}
                                         >

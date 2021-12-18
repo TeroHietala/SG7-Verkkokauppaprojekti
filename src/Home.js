@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card } from 'react-bootstrap';
+import Feedback from './inc/Admin/Feedback';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -27,6 +28,7 @@ export default function Home() {
 
   return (
     <div class="container">
+      <Feedback />
       <div className="karuselli">
         <h3>Tarjouksia</h3>
         <Carousel fade>
