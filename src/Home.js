@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card } from 'react-bootstrap';
-import Feedback from './inc/Admin/Feedback';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -27,8 +26,7 @@ export default function Home() {
   })
 
   return (
-    <div class="container">
-      <Feedback />
+    <div className="container">
       <div className="karuselli">
         <h3>Tarjouksia</h3>
         <Carousel fade>
@@ -94,18 +92,11 @@ export default function Home() {
           </Carousel.Item>
         </Carousel>
       </div>
-      <div class="row">
+      <div className="row">
         <h3>Valikoima</h3>
         {products.map(product => (
-          <div class='col-md-4 col-sm-10' style={{ padding: '10px' }} key={product.id}>
-            <Card style={{ width: '18rem', height: '30rem', backgroundColor: '#101115' }}>
-              <Card.Img id="pikkukuva" src={'http://localhost/verkkokauppa/images/' + product.image} alt={product.name} />
-              <Card.Body style={{ color: 'black' }}>
-                <Card.Title style={{ color: 'white', textAlign: "center" }} ></Card.Title>
-                <Card.Text style={{ color: 'white', textAlign: "center" }}>
-                </Card.Text>
-              </Card.Body>
-              <Link
+          <div className='col-md-4 col-sm-10' style={{ padding: '10px' }} key={product.id}>
+            <Link
                 to={{
                   pathname: '/inc/Products',
                   state: {
@@ -114,9 +105,18 @@ export default function Home() {
                   }
                 }}
               >
+            <Card style={{ width: '18rem', height: '30rem', backgroundColor: '#101115' }}>
+              <Card.Img id="pikkukuva" src={'http://localhost/verkkokauppa/images/' + product.image} alt={product.name} />
+              <Card.Body style={{ color: 'black' }}>
+                <Card.Title style={{ color: 'white', textAlign: "center" }} ></Card.Title>
+                <Card.Text style={{ color: 'white', textAlign: "center" }}>
+                </Card.Text>
+              </Card.Body>
+              
                 <p align="center">{product.name}</p>
-              </Link>
+              
             </Card>
+            </Link>
           </div>
         ))}
       </div>

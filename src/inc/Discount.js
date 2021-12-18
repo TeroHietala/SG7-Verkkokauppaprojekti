@@ -29,20 +29,12 @@ export default function Discount({ url, discount, addToCart }) {
     return (
         <div className="container">
             <h3>Tarjous tuotteet</h3>
-            <div class="row">
+            <div className="row">
                 {discounts.map(discount => (
                     
-                    <div class='col-lg-4 col-md-6 col-sm-10' style={{ padding: '10px'  }} key={discount.id}>
-                        <Card style={{  width: '18rem', height: '30rem', backgroundColor:'#101115' }}>
-                            <Card.Img id="pikkukuva" src={url + 'images/' + discount.image} alt={discount.name} />
-                                <Card.Body style={{ color: 'black' }}>
-                                                <Card.Title style={{ color: 'white', textAlign: "center" }} >{discount.name}</Card.Title>
-                                                <Card.Text style={{ color: 'white', textAlign: "center"  }}>
-                                                    Tässä erinomainen tarjous tuote!
-                                                </Card.Text>
-                                                <p style={{ color: 'white', textAlign: "center" }}>{discount.price} €</p>
-                                </Card.Body>
-                            <Link
+                    
+                    <div className='col-lg-4 col-md-6 col-sm-10' style={{ padding: '10px'  }} key={discount.id}>
+                        <Link
                                 to={{
                                     pathname: '/inc/Tuote',
                                     state: {
@@ -53,10 +45,23 @@ export default function Discount({ url, discount, addToCart }) {
                                     }
                                 }}
                             >
-                                <p align="center">Katso tuote tiedot</p>
-                            </Link>
-                            <button id="btn" className="btn" type="button" onClick={e => addToCart(discount)}>Lisää ostoskoriin</button>
-                        </Card>
+                            <Card style={{  width: '18rem', height: '30rem', backgroundColor:'#101115' }}>
+                                <Card.Img id="pikkukuva"  src={url + 'images/' + discount.image} alt={discount.name} />
+                                    <Card.Body style={{ color: 'black' }}>
+                                                    <Card.Title style={{ color: 'white', textAlign: "center" }} >{discount.name}</Card.Title>
+                                                    <Card.Text style={{ color: 'white', textAlign: "center"  }}>
+                                                        Tässä erinomainen tarjous tuote!
+                                                    </Card.Text>
+                                                    <p style={{ color: 'white', textAlign: "center" }}>{discount.price} €</p>
+                                    </Card.Body>
+                                
+                                    
+                                <Link>
+                                <button id="btn" className="btn" type="button" onClick={e => addToCart(discount)}>Lisää ostoskoriin</button>
+                                </Link>
+                            </Card>
+                        </Link>
+                        
                     </div>
                 ))}
             </div>

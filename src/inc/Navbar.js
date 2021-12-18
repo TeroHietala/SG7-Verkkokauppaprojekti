@@ -17,19 +17,19 @@ export default function Navbar ({ url, cart, icon, steps }) {
 
   //Hakee ja palauttaa kirjautujan etunimen
   const login = customers.map(customer => (
-    <p classNameName='nav-text'>
+    <p className='nav-text'>
       Tervetuloa {customer.first_name}
       <Link
         className='bi bi-box-arrow-right'
         type='button'
         onClick={e => emptyUser()}
       >
-        <svg
+        <svg 
           xmlns='http://www.w3.org/2000/svg'
           width='24'
           height='24'
           fill='currentColor'
-          className='bi bi-door-open-fill'
+          className=' bi-door-open-fill'
           viewBox='0 0 20 20'
         >
           <path d='M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z' />
@@ -94,10 +94,10 @@ export default function Navbar ({ url, cart, icon, steps }) {
   }, [url])
 
   return (
-    <nav class='navbar navbar-expand-lg fixed-top bg-dark' >
-      <div class='container-fluid'>
+    <nav className='navbar navbar-expand-lg fixed-top '>
+      <div className='container-fluid'>
         <Link
-          className='nav-link'
+          
           id='otsikko'
           to={{
             pathname: '/Home'
@@ -106,7 +106,7 @@ export default function Navbar ({ url, cart, icon, steps }) {
           INSTRUMENT HEAVEN
         </Link>
         <button
-          className='navbar-toggler custom-toggler'
+          className='navbar-toggler custom-toggler '
           type='button'
           data-bs-toggle='collapse'
           data-bs-target='#navbarSupportedContent'

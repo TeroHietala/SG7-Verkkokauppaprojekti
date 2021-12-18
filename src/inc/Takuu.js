@@ -2,7 +2,7 @@ import React from "react";
     
 export default function Takuu() {
     return (
-        <div>
+        <div className="container">
             <h3>Takuu ja palautusoikeus</h3>
             <p>
                 Tuotteillamme on 14 päivän lakisääteinen palautus ja vaihto-oikeus. 

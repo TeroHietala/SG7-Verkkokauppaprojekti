@@ -27,6 +27,7 @@ footer {
   text-align: center;
   background-color: #101115;
   font-size: 16px;
+  
 }
 .row .column {
   font-family: 'Jacques Francois', serif;
@@ -47,24 +48,39 @@ a:visited {
 footer a:hover {
   color: #dd6b00;
 }
-/* #header {
-  opacity: 30%;
-  background-image: url(./banner.png);
-  background-repeat: no-repeat;
-  background-color: #101115;
-  height: 250px;
-  background-size: cover;
 
-} */
-#header {
-  height: 100px;
+.container a:hover,a:visited {
+  color: #dd6b00;
 }
 
-.navbar {
-  background-image: url(./banner.png);
-  background-repeat: no-repeat;
-  background-color: #101115;
-  background-size: cover;
+.navbar a:hover, a:visited {
+  color: #dd6b00;
+}
+
+.navbar a:visited {
+  color: #dd6b00;
+}
+
+.ukkeli a:hover, a:visited {
+  color: #dd6b00;
+
+}
+
+.dropDown {
+  color: #dd6b00;
+
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: rgb(221, 107, 0);
+}
+.navbar-toggler-icon {
+  background-image: url(
+    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg%27%3E%3Cpath stroke='rgba(221, 107, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
+#header {
+  height: 100px;
 }
 
 .appi {
@@ -72,12 +88,11 @@ footer a:hover {
   font-size: 20px;
 }
 .navbar {
-  background-image: url(./banner3.jpg);
-  background-repeat: no-repeat;
+  background-image: url(./binneri3.jpg);
   background-color: #101115;
-  background-size: cover;
-  height: 100px;
+  min-height: 80px;
 }
+
 .navbar-toggle-icon .span {
   color: #dd6b00;
 }
@@ -88,18 +103,21 @@ footer a:hover {
 
 .navbar .nav-link {
   font-family: 'Jacques Francois', serif;
-  color: #f0ccab;
+  color: #dd6b00;
+  font-size: 20px;
 }
+
 .navbar .nav-text {
   font-family: 'Jacques Francois', serif;
   color: #f0ccab;
 }
+
 #otsikko {
   font-family: 'Pattaya', sans-serif;
-  font-size: 22px;
-  font-weight: 1000;
+  font-size: 35px;
   color: #dd6b00;
   letter-spacing: 7px;
+  -webkit-text-stroke: 1.2px rgb(8, 8, 8);
 }
 /* Karuselli kuvat */
 .karuselli1 {
@@ -125,8 +143,6 @@ footer a:hover {
 }
 /* Ostoskorin kuvat */
 .pikkukuva2 {
-  height: 100px;
-  width: 100px;
   object-fit: scale-down;
   position: relative;
   overflow: hidden;
@@ -287,6 +303,7 @@ footer a:hover {
   background-color: rgb(221, 107, 0);
   color: white;
   font-size: 18px;
+  width: 100%;
 }
 
 #haku {
@@ -296,22 +313,45 @@ footer a:hover {
 .card:hover {
   box-shadow: 0 0 3em 0px rgba(204, 146, 59, 0.4);
   transform: scale(1.02);
+  background-color: #7c5a3a;
 }
 .card:active {
   transform: scale(1.05) translateY(0.2rem);
 }
-.feedback {
 
-  cursor: default;
-  pointer-events: none;        
-  text-decoration: none;
-  color: rgb(136, 81, 30);
+.btn:hover {
+  box-shadow: 0 0 0.6em 1px rgb(248, 246, 246);
+  background-color: #7c5a3a;
+
 }
 
-.custom-toggler.navbar-toggler {
-  border-color: rgb(221, 107, 0);
+.card-img:hover {
+  animation: shake 0.5s;
 }
-.navbar-toggler-icon {
-  background-image: url(
-    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(221, 107, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+
+@keyframes boxyRotation {
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.container-fluid hr {
+border-top: 1px dashed rgb(221, 107, 0);
+}

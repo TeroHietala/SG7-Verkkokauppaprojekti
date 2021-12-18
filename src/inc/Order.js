@@ -31,16 +31,28 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty }
     let sum = 0;
     return (
         <div className="container">
-            <tr>
+            <tr className="row">
                 <h3>Ostoskori</h3>
-                <tr>
+                <hr></hr>
+                <tr className="container-fluid">
+                    <td className="col-4">Tuote:</td>
+                    <td className="col-4">Hinta:</td>
+                    <td className="col-3"></td>
+                    <td className="col-3">Määrä:</td>
+                    <td className="col-2"></td>
+
+                    <td>
+                    
+
+                    </td>
+                    <hr></hr>
                     {cart.map((product, index) => (
 
                         <tr key={uuid.v4()}>
-                            <td>{product.name}</td>
-                            <td style={{ padding: 15 }}>{product.price} €</td>
+                            <td style={{ padding: 15 }} className="col-2">{product.name}</td>
+                            <td style={{ padding: 15 }} className="col-2">{product.price} €</td>
 
-                            <td><input
+                            <td className="col-2" style={{ padding: 15 }}><input
                                 ref={inputs[index]}
                                 style={{ width: '60px' }}
                                 type="number" step="1" min="1" max="100"
@@ -48,40 +60,56 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty }
                                 value={product.amount}
                             />
 
-                                <img src={url + 'images/' + product.image} alt={product.name} className="pikkukuva" />
+                                <img src={url + 'images/' + product.image} alt={product.name} className="col-4 pikkukuva2" style={{ padding: 5 }} />
                             </td>
-                            <td>
-                                {product.price * product.amount} €
+                            <td className="col-2" style={{ padding: 15 }}>
+                                {product.price}€ x {product.amount} 
                             </td>
 
-                            <td style={{ padding: 15 }}><a href="#" onClick={() => removeFromCart(product)}>Delete</a></td>
-
+                            <td style={{ padding: 15 }} className="col-2"><a href="#" onClick={() => removeFromCart(product)}>Delete</a>
+                            
+                            </td>
+                            
                         </tr>
+                        
 
                     ))}
+                    <hr></hr>
                     {cart.map(product => {
                         sum += parseFloat(product.price * product.amount);
                         return (
-                            <tr key={uuid.v4()}>
-                                <td>{product.name}</td>
-                                <td>{product.price * product.amount}</td>
+                            
+                       <tr key={uuid.v4()}>
+                           
+                                <td className="col-8">{product.name}:</td>
+                                <td className="col-2">{product.price * product.amount} €</td>
                                 <td></td>
                             </tr>
                         )
                     })}
-                    <tr key={uuid.v4()}>
-                        <td></td>
-                        <td>{sum.toFixed(2)} €</td>
+                    <hr></hr>
+                    <tr key={uuid.v4()} className="col-12">
+
+                        <td className="col">
+
+                        </td>
+                        <td className="col-12">Lopullinen summa: {sum.toFixed(2)} €</td>
                     </tr>
+                    <hr></hr>
                     <tr key={uuid.v4()}>
                         <Link className="nav-link" to={{
                             pathname: "/inc/Tilaa",
-                        }}> Tilaa
+                        }}> 
+                        
+                        Tilaa
                         </Link>
+                        
                         <td className="sumrow"><a href="/inc/order" onClick={() => empty(null)}>Tyhjennä</a></td>
+                        
                     </tr>
                 </tr>
-            </tr>
+                </tr>
+                
         </div>
     );
 }

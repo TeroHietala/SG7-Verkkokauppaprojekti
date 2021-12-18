@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer className="footer">
             <div className="container">
-                <div class="row">
+                <div className="row">
                     <div className="col">
                         <h4>Tietoa meistä</h4>
                         <p>
