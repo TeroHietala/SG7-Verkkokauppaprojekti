@@ -6,7 +6,11 @@ export default function Tilaa({ url, cart }) {
 
     const [fname, setFname] = useState('');
     const [lname, setLname] = useState('');
+    const [mail,setMail] = useState('');
     const [address, setAddress] = useState('');
+    const [zip,setZip] = useState('');
+    const [city, setCity] = useState('');
+    const [phone,setPhone] = useState('');
     const [finished, setFinished] = useState(false);
 
     function order(e) {
@@ -21,6 +25,10 @@ export default function Tilaa({ url, cart }) {
                 first_name: fname,
                 last_name: lname,
                 address: address,
+                mail:mail,
+                zip:zip,
+                city:city,
+                phone:phone,
                 cart: cart,
             })
         })
@@ -76,7 +84,23 @@ export default function Tilaa({ url, cart }) {
                                 <input placeholder="Esimerkkitie 12" value={address} onChange={e => setAddress(e.target.value)} /><br />
                             </div>
                             <div>
-                                <button>Tilaa</button>
+                                <label>Sähköposti</label><br />
+                                <input type="email" placeholder="Esimerkki@esimerkki.fi" value={mail} onChange={e => setMail(e.target.value)} /><br />
+                            </div>
+                            <div>
+                                <label>Postinumero</label><br />
+                                <input type="number" placeholder="00100" value={zip} onChange={e => setZip(e.target.value)} /><br />
+                            </div>
+                            <div>
+                                <label>Postinumero</label><br />
+                                <input type="text" placeholder="Helsinki" value={city} onChange={e => setCity(e.target.value)} /><br />
+                            </div>
+                            <div>
+                                <label>Postinumero</label><br />
+                                <input type="number" placeholder="0501231234" value={phone} onChange={e => setPhone(e.target.value)} /><br />
+                            </div>
+                            <div>
+                                <button className="btn"  style={{background: "#dd6b00", margin: 10}}>Tilaa</button>
                             </div>
                         </form>
                     </>
@@ -84,6 +108,6 @@ export default function Tilaa({ url, cart }) {
             </div>
         )
     } else {
-        return (<h3 style={{ 'padding-top': '100px' }}>Than you for your order</h3>);
+        return (<h3 style={{ 'padding-top': '100px' }} className="container">Than you for your order</h3>);
     }
 }
