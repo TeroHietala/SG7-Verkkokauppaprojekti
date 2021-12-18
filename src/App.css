@@ -55,7 +55,12 @@ footer a:hover {
 .navbar a:hover, a:visited {
   color: #dd6b00;
 }
-
+.nav-link a:hover, a:visited {
+  color: #dd6b00;
+}
+.navbarDropdown.nav-link.dropdown-toggle a:hover, a:visited {
+  color: #dd6b00;
+}
 .navbar a:visited {
   color: #dd6b00;
 }
