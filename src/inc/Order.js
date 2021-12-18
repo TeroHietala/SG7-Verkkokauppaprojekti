@@ -63,7 +63,7 @@ export default function Order({ url, cart, removeFromCart, updateAmount, empty }
                                 <img src={url + 'images/' + product.image} alt={product.name} className="col-4 pikkukuva2" style={{ padding: 5 }} />
                             </td>
                             <td className="col-2" style={{ padding: 15 }}>
-                                {product.price}€ x {product.amount} 
+                            {product.amount} x {product.price}€  
                             </td>
 
                             <td style={{ padding: 15 }} className="col-2"><a href="#" onClick={() => removeFromCart(product)}>Delete</a>

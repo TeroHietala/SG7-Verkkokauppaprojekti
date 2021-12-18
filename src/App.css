@@ -20,8 +20,7 @@ body {
 }
 
 footer {
-  position: relative;
-  bottom: 0;
+  position: sticky;
   width: 100%;
   border: 0px;
   text-align: center;
