@@ -160,7 +160,7 @@ Swal.fire({
                                             value={phone}
                                             onChange={e => setPhone(e.target.value)} />
                                     </Form.Group>
-                                    <Button id="btn" type='submit' onClick={alertClicked} >Lähetä</Button>
+                                    <Button id="btn" type='submit' onClick={alertClicked} >Tilaa</Button>
                                 </Form>
                             </>
                         }
