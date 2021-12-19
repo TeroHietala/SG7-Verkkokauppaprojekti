@@ -94,6 +94,8 @@ footer a:hover {
 .navbar {
   background-image: url(./binneri3.jpg);
   min-height: 80px;
+  background-repeat: no-repeat;
+  background-color:black;
 }
 
 .navbar-toggle-icon .span {
