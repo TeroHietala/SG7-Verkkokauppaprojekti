@@ -38,11 +38,16 @@ export default function Tilaa({ url, cart }) {
             .then(
                 (res) => {
                     setFinished(true);
+                    localStorage.clear(cart);
+                    window.location.reload(false);
                 }, (error) => {
                     alert(error);
                 }
             )
     }
+    function alertClicked() {
+        alert("Tilauksesi on vastaanotettu ! ");
+      }
 
     let sum = 0;
     if (finished === false) {
@@ -100,7 +105,7 @@ export default function Tilaa({ url, cart }) {
                                 <input type="number" placeholder="0501231234" value={phone} onChange={e => setPhone(e.target.value)} /><br />
                             </div>
                             <div>
-                                <button className="btn"  style={{background: "#dd6b00", margin: 10}}>Tilaa</button>
+                                <button className="btn"  style={{background: "#dd6b00", margin: 10}} onClick={alertClicked} >Tilaa</button>
                             </div>
                         </form>
                     </>
