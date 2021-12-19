@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import uuid from 'react-native-uuid';
+import Swal from 'sweetalert2';
 
 export default function Tilaa({ url, cart }) {
 
@@ -39,15 +40,35 @@ export default function Tilaa({ url, cart }) {
                 (res) => {
                     setFinished(true);
                     localStorage.clear(cart);
-                    window.location.reload(false);
                 }, (error) => {
                     alert(error);
                 }
             )
     }
     function alertClicked() {
-        alert("Tilauksesi on vastaanotettu ! ");
-      }
+        let timerInterval
+Swal.fire({
+  title: 'Kiitos tilauksesta !',
+  html: 'Tilaustasi käsitellään, tämä ikkuna sammuu automaattisesti <b></b> ',
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    window.location.reload(false);
+}
+})
+    }
 
     let sum = 0;
     if (finished === false) {
@@ -112,7 +133,7 @@ export default function Tilaa({ url, cart }) {
                 }
             </div>
         )
-    } else {
+    } /* else {
         return (<h3 style={{ 'padding-top': '100px' }} className="container">Than you for your order</h3>);
-    }
+    } */
 }
