@@ -39,7 +39,6 @@ export default function Tilaa({ url, cart }) {
             .then(
                 (res) => {
                     setFinished(true);
-                    localStorage.clear(cart);
                 }, (error) => {
                     alert(error);
                 }
@@ -63,9 +62,9 @@ Swal.fire({
     clearInterval(timerInterval)
   }
 }).then((result) => {
-  /* Read more about handling dismissals below */
   if (result.dismiss === Swal.DismissReason.timer) {
     window.location.reload(false);
+    localStorage.clear(cart);
 }
 })
     }
