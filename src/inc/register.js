@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 export default function Register() {
     const [customer, setCustomer] = useState([]);
@@ -38,41 +40,79 @@ export default function Register() {
                 alert(error.response.data.error)
             });
     }
-        //Tyhjentää inputit ja muuttujat
-/*         function clear(e) {
-            e.preventDefault();
-            setFname('')
-            setLname('')
-            setMail('')
-            setPasswd('')
-            setAddr('')
-            setZip('')
-            setCity('')
-            setPhone('')
-        } */
 
     return (
         <div className="container">
             <h3>Rekisteröidy</h3>
-            <form onSubmit={save}>
-                <label>Etunimi</label><br />
-                <input type="text" placeholder="Erkki" value={fname} onChange={e => setFname(e.target.value)} /><br />
-                <label>Sukunimi</label><br />
-                <input type="text" placeholder="Esimerkki" value={lname} onChange={e => setLname(e.target.value)} /><br />
-                <label>Sähköposti</label><br />
-                <input type="email" placeholder="erkki.esimerkki@sähköposti.fi" value={mail} onChange={e => setMail(e.target.value)} /><br />
-                <label>Salasana</label><br />
-                <input type="password" placeholder="Salasana" value={passwd} onChange={e => setPasswd(e.target.value)} /><br />
-                <label>Osoite</label><br />
-                <input type="text" placeholder="Kadunnimi" value={addr} onChange={e => setAddr(e.target.value)} /><br />
-                <label>Postinumero</label><br />
-                <input type="number" placeholder="10100" value={zip} onChange={e => setZip(e.target.value)} /><br />
-                <label>Postitoimipaikka</label><br />
-                <input type="text" placeholder="Helsinki" value={city} onChange={e => setCity(e.target.value)} /><br />
-                <label>Puhelin numero</label><br />
-                <input type="tel" placeholder="0501231234" value={phone} onChange={e => setPhone(e.target.value)} /><br />
-                <button>Rekisteröidy</button>
-            </form>
+            <Form onSubmit={save}>
+                <Form.Group className='mb-3' controlId='fname'>
+                    <Form.Label>Etunimi</Form.Label>
+                    <Form.Control
+                        type='text'
+                        placeholder='Etunimi'
+                        value={fname}
+                        onChange={e => setFname(e.target.value)} />
+                </Form.Group>
+                <Form.Group className='mb-3' controlId='lname'>
+                    <Form.Label>Sukunimi</Form.Label>
+                    <Form.Control
+                        type='text'
+                        placeholder='Sukunimi'
+                        value={lname}
+                        onChange={e => setLname(e.target.value)} />
+                </Form.Group>
+                <Form.Group className='mb-3' controlId='mail'>
+                    <Form.Label>Sähköposti</Form.Label>
+                    <Form.Control
+                        type='email'
+                        placeholder='mattimalli@esimerkki.fi'
+                        value={mail}
+                        onChange={e => setMail(e.target.value)} />
+                </Form.Group>
+                <Form.Group className='mb-3' controlId='passwd'>
+                    <Form.Label>Salasana</Form.Label>
+                    <Form.Control
+                        type='password'
+                        placeholder='Salasana'
+                        value={passwd}
+                        onChange={e => setPasswd(e.target.value)} />
+                </Form.Group>
+                <Form.Group className='mb-3' controlId='address'>
+                    <Form.Label>Osoite</Form.Label>
+                    <Form.Control
+                        type='text'
+                        placeholder='Kadunnimi'
+                        value={addr}
+                        onChange={e => setAddr(e.target.value)} />
+                </Form.Group>
+                <Form.Group className='mb-3' controlId='zip'>
+                    <Form.Label>Postinumero</Form.Label>
+                    <Form.Control
+                        type='number'
+                        placeholder='Postinro'
+                        value={zip}
+                        onChange={e => setZip(e.target.value)} />
+                </Form.Group>
+                <Form.Group className='mb-3' controlId='city'>
+                    <Form.Label>Postitoimipaikka</Form.Label>
+                    <Form.Control
+                        type='text'
+                        placeholder='Postitoimipaikka'
+                        value={city}
+                        onChange={e => setCity(e.target.value)} />
+                </Form.Group>
+                <Form.Group className='mb-3' controlId='phone'>
+                    <Form.Label>Puhelinnumero</Form.Label>
+                    <Form.Control
+                        type='number'
+                        placeholder='Puhelinnumero'
+                        value={phone}
+                        onChange={e => setPhone(e.target.value)} />
+                </Form.Group>
+                <Button id="btn" type='submit'>
+                    Lähetä
+                </Button>
+            </Form>
         </div>
     );
 }

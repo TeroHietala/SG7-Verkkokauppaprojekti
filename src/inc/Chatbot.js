@@ -11,7 +11,7 @@ const theme = {
   botFontColor: '#101115',
   userBubbleColor: '#f0ccab',
   userFontColor: '#4a4a4a',
-  hideInput: true
+  
 
 }
 //Chatbot keskustelut
@@ -20,6 +20,7 @@ const steps = [
     id: "1",
     message: "Terve. Minun nimeni on Chatbot. Valitse alta kuinka voin auttaa.",
     trigger: "2",
+    hideInput: true
   },
   {
     id: "2",
@@ -27,12 +28,14 @@ const steps = [
       { value: 1, label: "Tarvitsen apua tuotteiden tilaamiseen", trigger: "3" },
       { value: 2, label: "En ole vielä saanut tilaamaani tuotetta?", trigger: "4" },
       { value: 3, label: "Muut asiat.", trigger: "5" }
-    ]
+    ],
+    hideInput: true
   },
   {
     id: "3",
     message: "Voit lisätä haluamasi tuotteen ostoskoriin. Mene sen jälkeen ostoskoriin ja paina 'tilaa tuote' painiketta. Voit tilata tuotteen ilman kirjautumista. Tarvitsetko lisää apua?",
-    trigger: "6"
+    trigger: "6",
+    hideInput: true
   },
   {
     id: "6",
@@ -40,41 +43,49 @@ const steps = [
       { value: 1, label: "En löydä oikeaa tuotetta", trigger: "7" },
       { value: 2, label: "Tuotetta ei ole verkkokaupassa", trigger: "8" },
       { value: 3, label: "Muissa tilauksiin liittyvissä asiossa?", trigger: "21" }
-    ]
+    ],
+    hideInput: true
   },
   {
     id: "7",
     message: "Voit etsiä tuotteita nimellä suurennuslasin alta. Voinko vielä auttaa sinua?", trigger: "20",
+    hideInput: true
   },
   {
     id: "8",
     message: "Tuotteemme vaihtelevat saatavuuden mukaan. Voit kysyä asiakaspalvelusta onko haluamaasi tuotetta tulossa.", trigger: "20",
+    hideInput: true
   },
   {
     id: "9", message: "Ota yhteyttä asiakaspalveluun.",
-    trigger: "50"
+    trigger: "50",
+    hideInput: true
   },
   {
     id: "4",
     message: "Onko tilauksesi tekemisestä aikaa alle vai yli kaksi viikkoa?",
-    trigger: "10"
+    trigger: "10",
+    hideInput: true
   },
   {
     id: "10",
     options: [
       { value: 1, label: "Alle", trigger: "11" },
       { value: 2, label: "Yli", trigger: "12" },
-    ]
+    ],
+    hideInput: true
   },
   {
     id: "11",
     message: "Pyydän sinua odottamaan vielä hetken. Jos tuote ei ole saapunut kahden viikon kuluttua tilauksesta, ota yhteyttä asiakaspalveluun.",
-    trigger: "50"
+    trigger: "50",
+    hideInput: true
   },
   {
     id: "12",
     message: "Valitettavasti toimituksessa on tapahtunut jokin yllättävä viivästys. Voit ottaa yhteyttä asiakaspalveluun lisätietojen saamiseksi.",
-    trigger: "50"
+    trigger: "50",
+    hideInput: true
   },
   {
     id: "5",
@@ -82,73 +93,87 @@ const steps = [
       { value: 1, label: "Olen unohtanut salasanani enkä pysty kirjautumaan", trigger: "62" },
       { value: 2, label: "Mistä löydän mahdolliset maksutavat?", trigger: "63" },
       { value: 3, label: "Miten voin antaa palautetta?", trigger: "64" }
-    ]
+    ],
+    hideInput: true
   },
   {
     id: "20",
     options: [
       { value: 1, label: "Kyllä, kiitos", trigger: "2" },
       { value: 2, label: "Ei, kiitos", trigger: "60" }
-    ]
+    ],
+    hideInput: true
   },
   {
     id: "21",
     options: [
       { value: 1, label: "Kyllä", trigger: "22" },
       { value: 2, label: "En", trigger: "60" }
-    ]
+    ],
+    hideInput: true
   },
   {
     id: "22",
     options: [
       { value: 1, label: "Saanko tilauksesta vahvistuksen?", trigger: "23" },
       { value: 2, label: "Saanko lähetyksestä seurantakoodin?", trigger: "24" }
-    ]
+    ],
+    hideInput: true
   },
   {
     id: "23",
     message: "Kyllä. Saat vahvistuksen heti kun tilauksenne on saapunut meille. Voinko vielä auttaa sinua?", trigger: "20",
+    hideInput: true
   },
   {
     id: "24",
     message: "Kyllä. Lähetämme seurantakoodin heti kunnes tuotteet ovat lähetetty", trigger: "20",
+    hideInput: true
   },
   {
     id: "50",
     options: [
       { value: 1, label: "Sähköposti", trigger: "51" },
       { value: 2, label: "Puhelin numero", trigger: "52" },
-    ]
+    ],
+    hideInput: true
   },
   {
     id: "51",
     message: "Voit lähettää meille sähköpostia osoitteeseen aspa@iheaven.fi. Vastaamme viestiisi mahdollisimman pian. Tarvitsetko apua muissa asiossa?", trigger: "20",
+    hideInput: true
   },
   {
     id: "52",
     message: "Tavoitat meidät numerosta 090 008 001 99. Olemme paikalla arkisin Ma-Pe kello 9-17 sekä La kello 11-16. Voinko vielä auttaa sinua?", trigger: "20",
+    hideInput: true
   },
   {
     id: "61",
     message: "Ole hyvä ja ota yhteyttä asiakaspalveluun",
-    trigger: "50"
+    trigger: "50",
+    hideInput: true
   },
   {
     id: "62",
     message: "Ota yhteyttä asiakaspalveluun saadaksesi uuden salasanan. Voit valita otatko yhteyttä sähköpostilla vai puhelimella.", trigger: "50",
+    hideInput: true  
   },
   {
     id: "63",
     message: "Löydät mahdolliset maksutavat sivun alhaalta 'Maksutavat' tekstin alta. Voinko vielä auttaa sinua?", trigger: "20",
+    hideInput: true
   },
   {
     id: "64",
     message: "Voit antaa palautetta sivun alareunasta löytyvän 'Ota yhteyttä' tekstin alta. Täytä ja lähetä lomake. Vastaamme palautteeseen mahdollisimman pikaisesti. Voinko vielä auttaa sinua?", trigger: "20",
+    hideInput: true
   },
   {
     id: "60",
     message: "Kiitos. Hyvää päivän jatkoa.",
-    end: true
+    end: true,
+    hideInput: true
   },
 ];
 
