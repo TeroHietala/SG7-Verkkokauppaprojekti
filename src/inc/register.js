@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import Swal from 'sweetalert2';
 
 export default function Register() {
     const [customer, setCustomer] = useState([]);
@@ -39,6 +40,30 @@ export default function Register() {
             }).catch(error => {
                 alert(error.response.data.error)
             });
+    }
+    function alertClicked() {
+        let timerInterval
+        Swal.fire({
+            title: 'Kiitos rekisteröitymisestä!',
+            html: 'Rekisteröintiä käsitellään, tämä ikkuna sammuu automaattisesti ja voit sen jälkeen kirjautua sivulle. <b></b> ',
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                window.location.reload(false);
+            }
+        })
     }
 
     return (
@@ -109,9 +134,7 @@ export default function Register() {
                         value={phone}
                         onChange={e => setPhone(e.target.value)} />
                 </Form.Group>
-                <Button id="btn" type='submit'>
-                    Lähetä
-                </Button>
+                <Button id="btn" type='submit' onClick={alertClicked} >Lähetä</Button>
             </Form>
         </div>
     );
