@@ -1,9 +1,10 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import uuid from 'react-native-uuid';
 import Swal from 'sweetalert2';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import axios from "axios";
 
 export default function Tilaa({ url, cart }) {
 
@@ -15,6 +16,9 @@ export default function Tilaa({ url, cart }) {
     const [city, setCity] = useState('');
     const [phone, setPhone] = useState('');
     const [finished, setFinished] = useState(false);
+    const [user, setUser] = useState([])
+
+
 
     function order(e) {
         e.preventDefault();
@@ -46,29 +50,62 @@ export default function Tilaa({ url, cart }) {
                 }
             )
     }
+    console.log(user)
+    console.log(cart)
+    useEffect(() => {
+        if ('user' in sessionStorage) {
+            setUser(JSON.parse(sessionStorage.getItem('user')))
+        }
+    }, [])
+    // Tilaus kirjautuneena
+    function orderLogin(e) {
+        e.preventDefault();
+        fetch(url + 'order/addLogin.php', {
+            method: 'POST',
+            header: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                user: user,
+                cart: cart,
+            })
+        })
+            .then(res => {
+                return res.json();
+            })
+            .then(
+                (res) => {
+                    setFinished(true);
+                }, (error) => {
+                    alert(error);
+                }
+            )
+    }
+
     function alertClicked() {
         let timerInterval
-Swal.fire({
-  title: 'Kiitos tilauksesta !',
-  html: 'Tilaustasi käsitellään, tämä ikkuna sammuu automaattisesti <b></b> ',
-  timer: 3000,
-  timerProgressBar: true,
-  didOpen: () => {
-    Swal.showLoading()
-    const b = Swal.getHtmlContainer().querySelector('b')
-    timerInterval = setInterval(() => {
-      b.textContent = Swal.getTimerLeft()
-    }, 100)
-  },
-  willClose: () => {
-    clearInterval(timerInterval)
-  }
-}).then((result) => {
-  if (result.dismiss === Swal.DismissReason.timer) {
-    window.location.reload(false);
-    localStorage.clear(cart);
-}
-})
+        Swal.fire({
+            title: 'Kiitos tilauksesta !',
+            html: 'Tilaustasi käsitellään, tämä ikkuna sammuu automaattisesti <b></b> ',
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                window.location.reload(false);
+                localStorage.clear(cart);
+            }
+        })
     }
 
     let sum = 0;
@@ -102,8 +139,9 @@ Swal.fire({
                         {cart.length > 0 &&
                             <>
                                 <hr></hr>
-                                <h3>Ostajan tiedot</h3>
+                                <h3 style={{ marginBottom: 15 }}>Ostajan tiedot</h3>
                                 <Form onSubmit={order}>
+                                    <Button style={{ marginBottom: 15 }} id="btn" type='submit' onClick={orderLogin, alertClicked} >Tilaa Kirjautuneena</Button>
                                     <Form.Group className='mb-3' controlId='fname'>
                                         <Form.Label>Etunimi</Form.Label>
                                         <Form.Control
@@ -168,7 +206,7 @@ Swal.fire({
                 </div>
             </div>
         )
-    }  else {
+    } else {
         return (<h3 style={{ 'padding-top': '100px' }} className="container"> </h3>);
-    } 
+    }
 }

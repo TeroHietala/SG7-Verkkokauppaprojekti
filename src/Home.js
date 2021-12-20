@@ -28,6 +28,7 @@ export default function Home() {
   return (
     <div className="container">
       <div className="karuselli">
+      <h2>Tervetuloa Instrument Heaveniin</h2>
         <h3>Tarjouksia</h3>
         <Carousel fade>
           <Carousel.Item interval={2500}>

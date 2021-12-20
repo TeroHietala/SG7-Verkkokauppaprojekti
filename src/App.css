@@ -3,11 +3,17 @@
 
 /* Omat */
 * {
-
   margin: 0;
   padding: 0;
 }
-
+body > #root > div {
+  min-height: 100vh;
+}
+h2{
+  text-align: center;
+  padding-bottom: 50px;
+  color: #dd6b00;
+}
 body {
   margin-bottom: 20%;
   color: rgb(253, 187, 167);
