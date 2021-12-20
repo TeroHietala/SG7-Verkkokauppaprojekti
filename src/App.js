@@ -42,7 +42,7 @@ function App() {
       if (location.pathname==="/inc/Products") {
         setCategory({ id: location.state.id,name: location.state.name, price: location.state.price, image: location.state.image });
       } else if (location.pathname==="/inc/Tuote") {
-        setProduct({ id: location.state.id, name: location.state.name, price: location.state.price, image: location.state.image });
+        setProduct({ id: location.state.id, name: location.state.name, price: location.state.price, image: location.state.image, description: location.state.description});
       }
       
     }

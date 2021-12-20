@@ -41,7 +41,8 @@ export default function Discount({ url, discount, addToCart }) {
                                         id: discount.id,
                                         name: discount.name,
                                         price: discount.price,
-                                        image: discount.image
+                                        image: discount.image,
+                                        description: discount.description
                                     }
                                 }}
                             >
